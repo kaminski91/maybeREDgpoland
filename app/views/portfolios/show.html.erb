@@ -1,0 +1,9 @@
+<h1><%= @portfolio.title %></h1>
+<p><%=raw @portfolio.content %></p>
+<h3>Logo marki</h3>
+<%= image_tag @portfolio.brand.url %>
+<h3>Obrazek</h3>
+<%= image_tag @portfolio.img.url %>
+<br/>
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

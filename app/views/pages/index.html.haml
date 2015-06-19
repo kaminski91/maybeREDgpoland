@@ -1,0 +1,15 @@
+.start
+  %h1 GPoland Group
+  %p
+    =raw @static.startText
+
+.about
+  %h1 O nas
+  %p
+    =raw @static.aboutText
+
+.portfolio
+  %h1 Portfolio marek
+  .brands
+    - @portfolio.each do |p|
+      = image_tag p.brand.url
