@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#index'
   get '/salons', to: 'salons#index'
-
+  get '/salons/edit', to: 'salons#admin'
   resources :pages
   resources :portfolios
   resources :showrooms

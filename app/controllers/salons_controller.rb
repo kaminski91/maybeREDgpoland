@@ -7,6 +7,10 @@ class SalonsController < ApplicationController
     @salons = Salon.all
   end
 
+  def admin
+    @salons = Salon.all
+  end
+
   # GET /salons/1
   # GET /salons/1.json
   def show
@@ -69,6 +73,6 @@ class SalonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def salon_params
-      params.require(:salon).permit(:brand, :posX, :posY, :description, :coutry, :city, :address)
+      params.require(:salon).permit(:brand, :posX, :posY, :description, :country, :city, :address)
     end
 end
