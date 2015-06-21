@@ -1873,6 +1873,36 @@
 	height: 400px;
 }
 
+.map-filter {
+	text-align: center;
+
+	.container {
+	  margin: 10px;
+
+	  &::after {
+	  	content:'';
+	    display:block;
+	    clear: both;
+	  }
+
+	  .form-group {
+	  	display: inline-block;
+	  	width: 28%;
+	  	margin: 0 3%;
+	  	float: left;
+
+	  	&:first-child {margin-left: 0;}
+	  	&:last-child {margin-right: 0;}
+
+	  	@include breakpoint(small) {
+	  		width: 100%;
+	  		margin: 0;
+	  		float: none;
+	  	}
+	  }
+	}
+}
+
 .owl-carousel{
 	margin-bottom: 20px;
 	img{
@@ -1949,7 +1979,7 @@
 
 #simplemodal-container a.modalCloseImg {
   // background: image-url("close.svg") no-repeat;
-  bordder-bottom: none;
+  border-bottom: none;
   width: 16px;
   height: 16px;
   display: inline;

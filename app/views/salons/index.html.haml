@@ -1,4 +1,35 @@
+- content_for :custom_js do
+	= javascript_include_tag 'googleMap'
+
 %article#main
-  %header
-    %h2 Salony
-    %p Sprawdź gdzie posiadamy swoje salony
+	%header
+		%h2 Salony
+		%p Sprawdź gdzie posiadamy swoje salony
+
+	#map-canvas
+
+	.inner
+		.wrapper.style1.special.map-filter
+			%h3 Filtr salonów
+			.container
+				.form-group
+					%label Państwo
+					%select#country
+						%option{value: "null"} Wszystkie 
+				.form-group
+					%label Miasto
+					%select#city
+						%option{value: "null"} Wszystkie
+				.form-group
+					%label Marka
+					%select#brand
+						%option{value: "null"} Wszystkie
+
+
+	%script
+		= "var mapPins = ["
+		- @salons.each_with_index do |s, i|
+			- if i != 0
+				= ","
+			= "{id: '#{s.id}', brand: '#{s.brand}', positionX: #{s.posX}, positionY: #{s.posY}, country: '#{s.country}', city: '#{s.city}', address: '#{s.address}', description: '#{s.description}'}"
+		= "];"

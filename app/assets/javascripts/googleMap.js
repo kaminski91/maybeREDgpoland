@@ -29,7 +29,14 @@ var mapPinToView = [];
 $(document).ready(function() {
     mapPinToView = mapPins;
     createArrayOf();
-    //createHtmlSelect();
+    appendSelect();
+
+    $('.map-filter select').on('change', function() {
+        var country = ($('#country').val() == "null")? null : $('#country').val();
+        var city = ($('#city').val() == "null")? null : $('#city').val();
+        var brand = ($('#brand').val() == "null")? null : $('#brand').val();
+        changeMapPinToView(country, city, brand)
+    })
 
     google.maps.event.addDomListener(window, 'load', initialize);
 });
@@ -73,7 +80,8 @@ function initialize() {
     var mapOptions = {
         center: new google.maps.LatLng(52.203589,21.033085),
         zoom:6,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
@@ -86,7 +94,6 @@ function initialize() {
             title: mapPinToView[i].brand,
             animation: google.maps.Animation.DROP
         });
-
     }
 }
 
@@ -117,7 +124,21 @@ function createArrayOf(){ // funkcja tworząca tablice listOfCity, listOfCountry
     });
 }
 
-//function createHtmlSelect(){
+function appendSelect(){
+    var countrySelect = $('#country');
+    for(i in listOfCountry.sort()) {
+        countrySelect.append('<option value="' + listOfCountry[i] + '"> ' + listOfCountry[i].capitalizeFirstLetter());
+    }
+
+    var citySelect = $('#city');
+    for(i in listOfCity.sort()) {
+        citySelect.append('<option value="' + listOfCity[i] + '"> ' + listOfCity[i].capitalizeFirstLetter());
+    }
+
+    var brandSelect = $('#brand');
+    for(i in listOfBrand.sort()) {
+        brandSelect.append('<option value="' + listOfBrand[i] + '"> ' + listOfBrand[i].capitalizeFirstLetter());
+    }
 //    var citySelect = document.getElementById('citySelect');
 //    for(var i = 0; i < listOfCity.length; i++) {
 //        var opt = document.createElement('option');
@@ -129,4 +150,8 @@ function createArrayOf(){ // funkcja tworząca tablice listOfCity, listOfCountry
 //        };
 //        citySelect.appendChild(opt);
 //    }
-//}
+}
+
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
+}

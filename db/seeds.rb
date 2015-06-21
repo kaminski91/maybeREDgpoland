@@ -9,7 +9,6 @@ Salon.create([
 	{brand: 'Liu Jo', posX: 50.807549, posY: 19.130586, country: 'POLSKA', city: 'CZĘSTOCHOWA', 	address: '', description: 'Galeria Jurajska'},
 	{brand: 'Liu Jo', posX: 50.880736, posY: 20.646646, country: 'POLSKA', city: 'KIELCE', 		address: '', description: 'Galeria Echo'},
 	{brand: 'Liu Jo', posX: 52.402296, posY: 16.925576, country: 'POLSKA', city: 'POZNAŃ', 		address: '', description: 'Stary Browar'},
-	{brand: 'Liu Jo', posX: 52.402296, posY: 16.925576, country: 'POLSKA', city: 'CZĘSTOCHOWA', 		address: '', description: 'Stary Browar'}, // rekord do usuniecia, dodany na potrzeby testów
 	{brand: 'Liu Jo', posX: 50.027528, posY: 22.015128, country: 'POLSKA', city: 'RZESZÓW', 		address: '', description: 'Millenium Hall'},
 	{brand: 'Liu Jo', posX: 51.103586, posY: 17.031757, country: 'POLSKA', city: 'WROCŁAW', 		address: '', description: 'Renoma'},
 	{brand: 'Liu Jo', posX: 52.203589, posY: 21.033085, country: 'POLSKA', city: 'WARSZAWA', 		address: '', description: 'Promenada'},
