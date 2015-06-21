@@ -1,11 +1,68 @@
 !!!
 %html
 	%head
+		%meta{charset: 'utf-8'}
+		%meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+
 		%title Gpoland
-		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
-	%body
-		-# Tymczasowe alerty
-		= notice
-		= yield
+
+		%link{href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', rel: 'stylesheet', type: 'text/css'}
+		%script{src: 'https://maps.googleapis.com/maps/api/js'}
+
+		/[if lt IE 8]
+			%script{src: 'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'}
+
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		/[if lt IE 9]
+			= stylesheet_link_tag 'v9', media: 'all', 'data-turbolinks-track' => true
+		/[if lt IE 8]
+			= stylesheet_link_tag 'v8', media: 'all', 'data-turbolinks-track' => true
+
+		
+
+	%body.landing
+		#page-wrapper
+			%header#header.alt
+				%h1
+					%a{href: root_path} Grupa GPoland
+				%nav#nav
+					%ul
+						%li.special
+							%a{href: "#", class: "menuToggle"}
+								%span Menu
+							#menu
+								%ul
+									%li
+										%a{href: "#{root_path}", class: "scrolly"} Start
+									%li
+										%a{href: "#{root_path}#one", class: "scrolly"} O Nas
+									%li
+										%a{href: "#{root_path}#pf", class: "scrolly"} PF Marek
+									%li
+										%a{href: "#{root_path}#madeing", class: "scrolly"} Made In G
+									%li
+										%a{href: "#{root_path}#two", class: "scrolly"} Showroom
+									%li
+										%a{href: "#{root_path}#retail", class: "scrolly"} Retail Academy
+									%li
+										%a{href: "#{root_path}#carieer", class: "scrolly"} Kariera
+									%li
+										%a{href: salons_path, class: "scrolly"} Salony
+									%li
+										%a{href: "#{root_path}#three", class: "scrolly"} News
+									%li
+										%a{href: "#{root_path}#cta", class: "scrolly"} Kontakt
+
+			= yield
+
+			%footer#footer
+				%ul.copyright
+					%span.text-center 
+						Made with &hearts; by 
+						%a{href: "http://maybe.red"} maybe.RED
+					%br
+					%span.text-center
+						© All rights reserved.
+
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true

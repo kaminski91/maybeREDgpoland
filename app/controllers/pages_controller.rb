@@ -6,6 +6,11 @@ class PagesController < ApplicationController
   def index
     @static = Page.first
     @portfolio = Portfolio.all
+    @showroom = Showroom.all
+    @news = News.all.order(date: :desc)
+    @start_gallery = Gallery.find_by(name: "start")
+    @madeing_gallery = Gallery.find_by(name: "makeing")
+    @showroom_gallery = Gallery.find_by(name: "showroom")
   end
 
   # GET /pages/1/edit
@@ -70,6 +75,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:startText, :aboutText)
+      params.require(:page).permit(:startText, :aboutText, :madeInGText, :retailAcademyText, :carieerText, :contactText)
     end
 end

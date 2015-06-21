@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  posX: 1.5
+  posY: 1.5
+  description: MyText
+  coutry: MyString
+  city: MyString
+  address: MyString
+
+two:
+  brand: MyString
+  posX: 1.5
+  posY: 1.5
+  description: MyText
+  coutry: MyString
+  city: MyString
+  address: MyString

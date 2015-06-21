@@ -1,0 +1,21 @@
+%h1 Nazwa
+%p
+	= @gallery.name
+
+%h1 Rotator
+%p
+	= (@gallery.rotator)? "tak": "nie"
+
+= link_to 'Dodaj zdjęcie', new_gallery_image_path(g: @gallery.id)
+%br/
+%br/
+
+%h1 Zdjęcia
+- @gallery.gallery_images.each do |img|
+	= image_tag img.img.url(:thumb)
+
+%br/
+= link_to 'Dodaj zdjęcie', new_gallery_image_path(g: @gallery.id)
+
+= link_to 'Edit', edit_gallery_path(@gallery)
+= link_to 'Back', galleries_path

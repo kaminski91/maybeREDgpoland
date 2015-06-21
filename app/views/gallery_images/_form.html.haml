@@ -1,0 +1,12 @@
+= form_for(@gallery_image) do |f|
+  .field-group
+    %h3 Galeria
+    %p
+      = @gallery_image.gallery.name
+      = f.hidden_field :gallery_id, value: @gallery_image.gallery_id
+  .field-group
+    %h3 Obraz
+    = f.file_field :img
+
+  .field-group
+    = f.submit

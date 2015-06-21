@@ -1,0 +1,45 @@
+<%= form_for(@salon) do |f| %>
+  <% if @salon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@salon.errors.count, "error") %> prohibited this salon from being saved:</h2>
+
+      <ul>
+      <% @salon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :posX %><br>
+    <%= f.text_field :posX %>
+  </div>
+  <div class="field">
+    <%= f.label :posY %><br>
+    <%= f.text_field :posY %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :coutry %><br>
+    <%= f.text_field :coutry %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

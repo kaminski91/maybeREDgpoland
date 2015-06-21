@@ -1,15 +1,104 @@
-.start
-  %h1 GPoland Group
-  %p
-    =raw @static.startText
+%section#banner
+	.inner
+		.svg-container
+			%h2
+				= image_tag "newLogo.png"
+		%p
+			=raw @static.startText
+	%a{href: "#one" , class:'more scrolly'} Poznaj nas
 
-.about
-  %h1 O nas
-  %p
-    =raw @static.aboutText
+%section#one.wrapper.style1.special
+	.inner
+		%header.major
+			%h2 O nas
+			%p
+				=raw @static.aboutText
 
-.portfolio
-  %h1 Portfolio marek
-  .brands
-    - @portfolio.each do |p|
-      = image_tag p.brand.url
+
+%section#pf.wrapper.portfolio.special
+	.inner
+		%header.major
+			%h2 Portfolio marek
+			- @portfolio.each do |p|
+				.item{id: "portfolio-item-#{p.id}", "data-for" => "#portfolio-modal-#{p.id}"}
+					.logotype
+						= image_tag p.brand.url
+	- @portfolio.each do |p|
+		%div.portfolio-modal{id: "portfolio-modal-#{p.id}"}
+			%h3
+				= p.title
+			%p
+				=raw p.content
+			- if p.url
+				%a{href: p.url} Zobacz stronę producenta
+
+%section#madeing.wrapper.style1.special
+	.inner
+		%header.major
+			%h2 Made in G
+			%p
+				=raw @static.madeInGText
+	.container
+		.owl-carousel
+			- @madeing_gallery.gallery_images.each do |i|
+				%a{href: i.img.url, "data-lightbox"=>"madeingShowroom"}
+					= image_tag i.img.url(:thumb)
+
+%section#two.wrapper.alt.style2.special.gridalicious
+	.inner
+		%header.major 
+			%h2 Showroom
+	.container
+		.owl-carousel
+			- @showroom_gallery.gallery_images.each do |i|
+				%a{href: i.img.url, "data-lightbox"=>"roadShowroom"}
+					= image_tag i.img.url(:thumb)
+	- @showroom.each do |s|
+		%section.spotlight
+			.image
+				= image_tag s.img.url
+			.content
+				%p
+					=raw s.content
+
+%section#retail.wrapper.style1.special
+	.inner
+		%header.major
+			%h2 Retail Academy
+			%p
+				=raw @static.retailAcademyText
+
+%section#carieer.wrapper.style5.special
+	.inner
+		%header.major
+			%h2 Kariera
+			%p
+				=raw @static.carieerText
+
+%section#three.wrapper.style3.special
+	.inner
+		%header.major
+			%h2 Pozostań w kontakcie
+			%p śledź nas na
+			%p 
+				%span.icon.fa-facebook-official
+				%span.icon.fa-twitter
+				%span.icon.fa-instagram
+				%span.icon.fa-tumblr
+		%ul.features
+			- @news.each do |n|
+				%li
+					%h3
+						= n.date
+					%p
+						= n.content 
+
+%section#cta.wrapper.style4 
+	.inner    
+		%header
+			%p
+				=raw @static.contactText
+		%ul.actions.vertical
+			%li Tu będzie formularz
+
+

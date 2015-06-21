@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @salon.brand %>
+</p>
+
+<p>
+  <strong>Posx:</strong>
+  <%= @salon.posX %>
+</p>
+
+<p>
+  <strong>Posy:</strong>
+  <%= @salon.posY %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @salon.description %>
+</p>
+
+<p>
+  <strong>Coutry:</strong>
+  <%= @salon.coutry %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @salon.city %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @salon.address %>
+</p>
+
+<%= link_to 'Edit', edit_salon_path(@salon) %> |
+<%= link_to 'Back', salons_path %>
