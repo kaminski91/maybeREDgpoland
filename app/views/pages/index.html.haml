@@ -99,6 +99,15 @@
 			%p
 				=raw @static.contactText
 		%ul.actions.vertical
-			%li Tu będzie formularz
+			%li
+				%form
+					%label{for: "name"} Imię i nazwisko
+					%input{type: "text", name: "name"}/
+					%label{for: "email"} Adres email
+					%input{type: "email", name: "email"}/
+					%label{for: "tel"} Nr. telefonu
+					%input{type: "text", name: "tel"}/
+					%label{for: "content"} Treść
+					%textarea{name: "content", :cols => "30", :rows => "5"}
 
 

@@ -27,15 +27,18 @@
 			%h3 Salony
 			.row.container.header
 				.2u Marka
-				.4u Adres
+				.2u Adres
+				.2u Miasto
 				.6u Opis
 			#salon-list.container
 				- @salons.each do |s|
 					.row
 						.2u
 							= s.brand
-						.4u
+						.2u
 							= s.address
+						.2u
+							= s.city
 						.6u
 							= s.description
 
