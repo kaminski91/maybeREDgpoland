@@ -134,8 +134,6 @@
 
 })(jQuery);
 
-
-
 $(document).ready(function(){
 	$(".owl-carousel.gallery").owlCarousel({
 		autoPlay : 3000,
@@ -144,13 +142,12 @@ $(document).ready(function(){
     autoWidth:true
 	});
 
-	var startRotator = $(".owl-carousel.rotator").owlCarousel({
+	var startRotator = $(".owl-carousel.rotator").height($('#page-wrapper').height()).owlCarousel({
 		loop:true,
-		items: 1
-	});
-
-	startRotator.on('resize.owl.carousel', function() {
-		startRotator.trigger('initialize.owl.carousel');
+		items: 1,
+    autoplay:true,
+    autoplayTimeout:6000,
+    animateOut: 'fadeOut'
 	});
 
 

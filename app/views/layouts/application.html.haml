@@ -24,7 +24,8 @@
 	%body#start.landing
 		#rotator-container.owl-carousel{class: (@start_gallery.rotator)? "rotator":  "gallery"}
 			- @start_gallery.gallery_images.each do |i|
-				= image_tag i.img.url
+				.item{style: "background-image: url(#{i.img.url})"}
+					= image_tag i.img.url
 		#page-wrapper
 			%header#header.alt
 				%h1

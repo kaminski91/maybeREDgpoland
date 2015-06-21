@@ -1258,6 +1258,15 @@
 		position: fixed;
 		z-index: 1;
 		top: 0px;
+
+		.item {
+			position: relative;
+
+			background-attachment: fixed;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 	}
 
 	#page-wrapper {
@@ -1675,7 +1684,7 @@
 	#main {
 		> header {
 			@include padding(12em, 0);
-			// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("transparent1.png")}"));
+			// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("banner_1.jpg")}"));
 			background-color: rgba(0,0,0,0.5);
 			background-attachment: fixed;
 			background-position: center center;
@@ -1801,7 +1810,7 @@
 
 	body.landing {
 		#page-wrapper {
-			// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("transparent1.png")}"));
+			// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("banner_1.jpg")}"));
 			background-color: rgba(0,0,0,0.5);
 			background-attachment: fixed;
 			background-position: center center;
@@ -1823,7 +1832,7 @@
 
 			#banner,
 			.wrapper.style4 {
-				// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("transparent1.png")}"));
+				// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("banner_1.jpg")}"));
 				background-color: rgba(0,0,0,0.5);
 				background-position: center center;
 				background-repeat: no-repeat;
