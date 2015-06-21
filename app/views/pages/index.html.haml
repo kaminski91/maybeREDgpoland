@@ -110,4 +110,12 @@
 					%label{for: "content"} Treść
 					%textarea{name: "content", :cols => "30", :rows => "5"}
 
+%script
+	= "var rotatorBg = ["
+	- @start_gallery.gallery_images.each_with_index do |img, i|
+		- if i != 0
+			= ","
+		= "'#{img.img.url}'"
+	= "];"
+
 

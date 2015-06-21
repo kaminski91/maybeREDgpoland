@@ -34,25 +34,25 @@
 							#menu
 								%ul
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}": "#start", class: "scrolly"} Start
+										%a{href: (controller_name != "pages")? "#{root_path}": "#start", class: "scrolly"} Start
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#one": "#one", class: "scrolly"} O Nas
+										%a{href: (controller_name != "pages")? "#{root_path}#one": "#one", class: "scrolly"} O Nas
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#pf": "#pf", class: "scrolly"} PF Marek
+										%a{href: (controller_name != "pages")? "#{root_path}#pf": "#pf", class: "scrolly"} PF Marek
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#madeing": "#madeing", class: "scrolly"} Made In G
+										%a{href: (controller_name != "pages")? "#{root_path}#madeing": "#madeing", class: "scrolly"} Made In G
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#two": "#two", class: "scrolly"} Showroom
+										%a{href: (controller_name != "pages")? "#{root_path}#two": "#two", class: "scrolly"} Showroom
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#retail": "#retail", class: "scrolly"} Retail Academy
+										%a{href: (controller_name != "pages")? "#{root_path}#retail": "#retail", class: "scrolly"} Retail Academy
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#carieer": "#carieer", class: "scrolly"} Kariera
+										%a{href: (controller_name != "pages")? "#{root_path}#carieer": "#carieer", class: "scrolly"} Kariera
 									%li
 										%a{href: salons_path, class: "scrolly"} Salony
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#three": "#three", class: "scrolly"} News
+										%a{href: (controller_name != "pages")? "#{root_path}#three": "#three", class: "scrolly"} News
 									%li
-										%a{href: (controller_name == "salons")? "#{root_path}#cta": "#cta", class: "scrolly"} Kontakt
+										%a{href: (controller_name != "pages")? "#{root_path}#cta": "#cta", class: "scrolly"} Kontakt
 
 			= yield
 
