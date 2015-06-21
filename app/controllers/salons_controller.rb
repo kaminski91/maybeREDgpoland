@@ -46,7 +46,7 @@ class SalonsController < ApplicationController
   def update
     respond_to do |format|
       if @salon.update(salon_params)
-        format.html { redirect_to @salon, notice: 'Salon was successfully updated.' }
+        format.html { redirect_to salons_edit_path, notice: 'Salon was successfully updated.' }
         format.json { render :show, status: :ok, location: @salon }
       else
         format.html { render :edit }
