@@ -24,6 +24,22 @@
 					%label Marka
 					%select#brand
 						%option{value: "null"} Wszystkie
+			%h3 Salony
+			.row.container.header
+				.2u Marka
+				.4u Adres
+				.6u Opis
+			#salon-list.container
+				- @salons.each do |s|
+					.row
+						.2u
+							= s.brand
+						.4u
+							= s.address
+						.6u
+							= s.description
+
+
 
 
 	%script

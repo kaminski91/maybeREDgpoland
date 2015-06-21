@@ -43,35 +43,32 @@ $(document).ready(function() {
 
 function changeMapPinToView(country, city, brand){
     mapPinToView = mapPins;
-    if(country || city || brand){
-        if(country){
-            mapPinToView = _.filter(mapPinToView, function(singleObject){
-                return singleObject.country == country
-            });
-        }
-        if(city){
-            mapPinToView = _.filter(mapPinToView, function(singleObject){
-                return singleObject.city == city
-            });
-        }
-        if(brand){
-            mapPinToView = _.filter(mapPinToView, function(singleObject){
-                return singleObject.brand == brand
-            });
-        }
+    if(country){
+        mapPinToView = _.filter(mapPinToView, function(singleObject){
+            return singleObject.country == country
+        });
     }
-    //console.clear();
-    //
-    //console.log('dlugość tablicy mapPinToView to ' + mapPinToView.length);
-    //for (var i=0 ; i < mapPinToView.length; i++){
-    //    console.log('id = ' + mapPinToView[i].id
-    //        + '  positionX = ' + mapPinToView[i].positionX
-    //        + '  positionY = ' + mapPinToView[i].positionY
-    //        + '  brand = ' + mapPinToView[i].brand
-    //        + '  city = ' + mapPinToView[i].city
-    //        + '  country = ' + mapPinToView[i].country);
-    //}
+    if(city){
+        mapPinToView = _.filter(mapPinToView, function(singleObject){
+            return singleObject.city == city
+        });
+    }
+    if(brand){
+        mapPinToView = _.filter(mapPinToView, function(singleObject){
+            return singleObject.brand == brand
+        });
+    }
+
+    printResults();
+
     initialize();
+}
+
+function printResults() {
+    $('#salon-list').html('');
+    for(i in mapPinToView) {
+        $('#salon-list').append('<div class="row"><div class="2u">' + mapPinToView[i].brand + '</div><div class="4u">' + mapPinToView[i].address + '</div><div class="6u">' + mapPinToView[i].description + '</div></div>');
+    }
 }
 
 
