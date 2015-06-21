@@ -145,15 +145,15 @@ $(document).ready(function(){
 	});
 
 
-	// // Losowe tło przy odświerzaniu
-	// var rotatorBgId = Math.floor(Math.random() * rotatorBg.length);
-	// $('#page-wrapper').attr(
-	// 	"style",
-	// 	"background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + "); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + "); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + "); background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + ")"
- //  );
-
+	// Losowe tło przy odświerzaniu
+	var rotatorBgId = Math.floor(Math.random() * rotatorBg.length);
 	$('#page-wrapper').attr(
 		"style",
-		"background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5));"
-	);
+		"background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + "); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + "); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + "); background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(" + rotatorBg[rotatorBgId] + ")"
+  );
+
+	// $('#page-wrapper').attr(
+	// 	"style",
+	// 	"background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5));"
+	// );
 });
