@@ -39,7 +39,7 @@
 			%p
 				=raw @static.madeInGText
 	.container
-		.owl-carousel
+		.owl-carousel{class: (@madeing_gallery.rotator)? "rotator":  "gallery"}
 			- @madeing_gallery.gallery_images.each do |i|
 				%a{href: i.img.url, "data-lightbox"=>"madeingShowroom"}
 					= image_tag i.img.url(:thumb)
@@ -49,7 +49,7 @@
 		%header.major 
 			%h2 Showroom
 	.container
-		.owl-carousel
+		.owl-carousel{class: (@showroom_gallery.rotator)? "rotator":  "gallery"}
 			- @showroom_gallery.gallery_images.each do |i|
 				%a{href: i.img.url, "data-lightbox"=>"roadShowroom"}
 					= image_tag i.img.url(:thumb)

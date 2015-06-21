@@ -1254,10 +1254,19 @@
 
 /* Page Wrapper + Menu */
 
+	#rotator-container {
+		position: fixed;
+		z-index: 1;
+		top: 0px;
+	}
+
 	#page-wrapper {
 		@include vendor('transition', 'opacity #{_duration(menu)} ease');
 		opacity: 1;
 		padding-top: 3em;
+		position: relative;
+		top: 0px;
+		z-index: 2;
 
 		&:before {
 			background: rgba(0,0,0,0);
@@ -1271,6 +1280,7 @@
 			width: 100%;
 			z-index: _misc(z-index-base) + 1;
 		}
+
 	}
 
 	#menu {
@@ -1665,7 +1675,8 @@
 	#main {
 		> header {
 			@include padding(12em, 0);
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("banner.jpg")}"));
+			// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("transparent1.png")}"));
+			background-color: rgba(0,0,0,0.5);
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1790,7 +1801,8 @@
 
 	body.landing {
 		#page-wrapper {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("banner.jpg")}"));
+			// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("transparent1.png")}"));
+			background-color: rgba(0,0,0,0.5);
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1811,7 +1823,8 @@
 
 			#banner,
 			.wrapper.style4 {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("banner.jpg")}"));
+				// @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', "#{image-url("transparent1.png")}"));
+				background-color: rgba(0,0,0,0.5);
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
