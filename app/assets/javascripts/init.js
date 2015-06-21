@@ -150,6 +150,7 @@ $(document).ready(function(){
     animateOut: 'fadeOut'
 	});
 
+	$('#menu-cover').height($('#page-wrapper').height())
 
 	// Losowe tło przy odświerzaniu
 	// var rotatorBgId = Math.floor(Math.random() * rotatorBg.length);
