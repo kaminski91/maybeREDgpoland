@@ -81,6 +81,8 @@
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#three": "#three", class: "scrolly"} News
 									%li
+										%a{href: downloads_path, class: "scrolly"} Download
+									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#cta": "#cta", class: "scrolly"}
 											- if $lang == 'pl'
 												= translation.contactHeader_pl
@@ -88,6 +90,9 @@
 												= translation.contactHeader_en
 											- else
 												= translation.contactHeader_it
+									- if user_signed_in?
+										%li
+											= link_to "Logout", destroy_user_session_path, :method => :delete
 								%span.setLanguage
 									%a{:href => set_lang_path("pl")}
 										%span PL

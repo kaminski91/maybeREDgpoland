@@ -1,0 +1,28 @@
+%article#main
+  %header
+    %h2 Download
+  %section#one.wrapper.style1.special
+    .inner
+      %header.major
+        %h2 
+          - if $lang == 'pl'
+            = translation.downloadHeader_pl
+          - elsif $lang == 'en'
+            = translation.downloadHeader_en
+          - else
+            = translation.downloadHeader_it
+      #download.container
+        - if !@downloads.any? 
+          %h4 Brak plików
+          %br/
+          %br/
+          %br/
+          %br/
+          %br/
+        - else
+          - @downloads.each do |d|
+            .row
+              .column
+                %i.fa.fa-file-o
+              .column
+                = link_to d.file_file_name, d.file.url

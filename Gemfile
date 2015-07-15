@@ -16,6 +16,7 @@ gem 'tinymce-rails-langs'
 
 gem 'seed_dump'
 gem 'thin'
+gem 'devise'
 
 
 # gem 'rails_12factor', group: :production

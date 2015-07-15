@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'pages#index'
 
   get '/salons', to: 'salons#index'
   get '/salons/edit', to: 'salons#admin'
+
+  get '/downloads', to: 'downloads#index'
+  post '/downloads', to: 'downloads#create'
+
   get '/lang/:lang', to: 'application#set_lang', as: 'set_lang'
   
   get '/admin', to: 'pages#admin'
@@ -16,5 +21,6 @@ Rails.application.routes.draw do
     resources :gallery_images
     resources :galleries
     resources :translations
+    resources :downloads
   end
 end

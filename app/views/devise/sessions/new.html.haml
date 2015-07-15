@@ -1,0 +1,38 @@
+%article#main
+  %header
+    %h2
+      - if $lang == 'pl'
+        = translation.formLogin_pl
+      - elsif $lang == 'en'
+        = translation.formLogin_en
+      - else
+        = translation.formLogin_it
+  %section#one.wrapper.style1.special
+    .inner
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          %br/
+          - if $lang == 'pl'
+            = f.label :email, translation.formEmail_pl
+          - elsif $lang == 'en'
+            = f.label :email, translation.formEmail_en
+          - else
+            = f.label :email, translation.formEmail_it
+          = f.email_field :email, autofocus: true
+        .field
+          %br/
+          - if $lang == 'pl'
+            = f.label :password, translation.formPass_pl
+          - elsif $lang == 'en'
+            = f.label :password, translation.formPass_en
+          - else
+            = f.label :password, translation.formPass_it
+          = f.password_field :password, autocomplete: "off"
+        .actions
+          %br/
+          - if $lang == 'pl'
+            = f.submit translation.formLogin_pl
+          - elsif $lang == 'en'
+            = f.submit translation.formLogin_en
+          - else
+            = f.submit translation.formLogin_it
