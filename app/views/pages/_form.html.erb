@@ -1,16 +1,4 @@
 <%= form_for(@page) do |f| %>
-  <% if @page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
-
-      <ul>
-      <% @page.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :startText %><br>
     <%= f.text_area :startText %>
@@ -18,10 +6,6 @@
   <div class="field">
     <%= f.label :aboutText %><br>
     <%= f.text_area :aboutText %>
-  </div>
-  <div class="field">
-    <%= f.label :madeInGText %><br>
-    <%= f.text_area :madeInGText %>
   </div>
   <div class="field">
     <%= f.label :retailAcademyText %><br>

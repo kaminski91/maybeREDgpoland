@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Translations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Startmore pl</th>
+      <th>Startmore en</th>
+      <th>Startmore it</th>
+      <th>Aboutheader pl</th>
+      <th>Aboutheader en</th>
+      <th>Aboutheader it</th>
+      <th>Portfolioheader pl</th>
+      <th>Portfolioheader en</th>
+      <th>Portfolioheader it</th>
+      <th>Portfoliomore pl</th>
+      <th>Portfoliomore en</th>
+      <th>Portfoliomore it</th>
+      <th>Carieerheader pl</th>
+      <th>Carieerheader en</th>
+      <th>Carieerheader it</th>
+      <th>Contactheader pl</th>
+      <th>Contactheader en</th>
+      <th>Contactheader it</th>
+      <th>Contactfollow pl</th>
+      <th>Contactfollow en</th>
+      <th>Contactfollow it</th>
+      <th>Formname pl</th>
+      <th>Formname en</th>
+      <th>Formname it</th>
+      <th>Formemail pl</th>
+      <th>Formemail en</th>
+      <th>Formemail it</th>
+      <th>Formtel pl</th>
+      <th>Formtel en</th>
+      <th>Formtel it</th>
+      <th>Formcontent pl</th>
+      <th>Formcontent en</th>
+      <th>Formcontent it</th>
+      <th>Salonheader pl</th>
+      <th>Salonheader en</th>
+      <th>Salonheader it</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @translations.each do |translation| %>
+      <tr>
+        <td><%= translation.startMore_pl %></td>
+        <td><%= translation.startMore_en %></td>
+        <td><%= translation.startMore_it %></td>
+        <td><%= translation.aboutHeader_pl %></td>
+        <td><%= translation.aboutHeader_en %></td>
+        <td><%= translation.aboutHeader_it %></td>
+        <td><%= translation.portfolioHeader_pl %></td>
+        <td><%= translation.portfolioHeader_en %></td>
+        <td><%= translation.portfolioHeader_it %></td>
+        <td><%= translation.portfolioMore_pl %></td>
+        <td><%= translation.portfolioMore_en %></td>
+        <td><%= translation.portfolioMore_it %></td>
+        <td><%= translation.carieerHeader_pl %></td>
+        <td><%= translation.carieerHeader_en %></td>
+        <td><%= translation.carieerHeader_it %></td>
+        <td><%= translation.contactHeader_pl %></td>
+        <td><%= translation.contactHeader_en %></td>
+        <td><%= translation.contactHeader_it %></td>
+        <td><%= translation.contactFollow_pl %></td>
+        <td><%= translation.contactFollow_en %></td>
+        <td><%= translation.contactFollow_it %></td>
+        <td><%= translation.formName_pl %></td>
+        <td><%= translation.formName_en %></td>
+        <td><%= translation.formName_it %></td>
+        <td><%= translation.formEmail_pl %></td>
+        <td><%= translation.formEmail_en %></td>
+        <td><%= translation.formEmail_it %></td>
+        <td><%= translation.formTel_pl %></td>
+        <td><%= translation.formTel_en %></td>
+        <td><%= translation.formTel_it %></td>
+        <td><%= translation.formContent_pl %></td>
+        <td><%= translation.formContent_en %></td>
+        <td><%= translation.formContent_it %></td>
+        <td><%= translation.salonHeader_pl %></td>
+        <td><%= translation.salonHeader_en %></td>
+        <td><%= translation.salonHeader_it %></td>
+        <td><%= link_to 'Show', translation %></td>
+        <td><%= link_to 'Edit', edit_translation_path(translation) %></td>
+        <td><%= link_to 'Destroy', translation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Translation', new_translation_path %>

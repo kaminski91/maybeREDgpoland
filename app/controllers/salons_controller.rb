@@ -1,5 +1,6 @@
 class SalonsController < ApplicationController
   before_action :set_salon, only: [:show, :edit, :update, :destroy]
+  layout 'admin', except: :index
 
   # GET /salons
   # GET /salons.json

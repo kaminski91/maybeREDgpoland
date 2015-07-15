@@ -13,7 +13,7 @@
   <tbody>
     <% @showrooms.each do |showroom| %>
       <tr>
-        <td><%= showroom.content %></td>
+        <td><%= showroom.content_pl %></td>
         <td><%= link_to 'Show', showroom %></td>
         <td><%= link_to 'Edit', edit_showroom_path(showroom) %></td>
         <td><%= link_to 'Destroy', showroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>

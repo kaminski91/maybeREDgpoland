@@ -22,10 +22,6 @@
 		
 
 	%body#start.landing
-		#rotator-container.owl-carousel{class: (@start_gallery.rotator)? "rotator":  "gallery"}
-			- @start_gallery.gallery_images.each do |i|
-				.item{style: "background-image: url(#{i.img.url})"}
-					= image_tag i.img.url
 		#page-wrapper
 			%header#header.alt
 				%h1
@@ -36,13 +32,30 @@
 							%a{href: "#", class: "menuToggle"}
 								%span Menu
 							#menu
+
+								.menu-social
+									%p.icon.fa-facebook-official
+									%p.icon.fa-instagram
+
 								%ul
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}": "#start", class: "scrolly"} Start
 									%li
-										%a{href: (controller_name != "pages")? "#{root_path}#one": "#one", class: "scrolly"} O Nas
+										%a{href: (controller_name != "pages")? "#{root_path}#one": "#one", class: "scrolly"}
+											- if $lang == 'pl'
+												= translation.aboutHeader_pl
+											- elsif $lang == 'en'
+												= translation.aboutHeader_en
+											- else
+												= translation.aboutHeader_it
 									%li
-										%a{href: (controller_name != "pages")? "#{root_path}#pf": "#pf", class: "scrolly"} PF Marek
+										%a{href: (controller_name != "pages")? "#{root_path}#pf": "#pf", class: "scrolly"}
+											- if $lang == 'pl'
+												= translation.portfolioMenu_pl
+											- elsif $lang == 'en'
+												= translation.portfolioMenu_en
+											- else
+												= translation.portfolioMenu_it
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#madeing": "#madeing", class: "scrolly"} Made In G
 									%li
@@ -50,13 +63,40 @@
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#retail": "#retail", class: "scrolly"} Retail Academy
 									%li
-										%a{href: (controller_name != "pages")? "#{root_path}#carieer": "#carieer", class: "scrolly"} Kariera
+										%a{href: (controller_name != "pages")? "#{root_path}#carieer": "#carieer", class: "scrolly"}
+											- if $lang == 'pl'
+												= translation.carieerHeader_pl
+											- elsif $lang == 'en'
+												= translation.carieerHeader_en
+											- else
+												= translation.carieerHeader_it
 									%li
-										%a{href: salons_path, class: "scrolly"} Salony
+										%a{href: salons_path, class: "scrolly"}
+											- if $lang == 'pl'
+												= translation.salonHeader_pl
+											- elsif $lang == 'en'
+												= translation.salonHeader_en
+											- else
+												= translation.salonHeader_it
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#three": "#three", class: "scrolly"} News
 									%li
-										%a{href: (controller_name != "pages")? "#{root_path}#cta": "#cta", class: "scrolly"} Kontakt
+										%a{href: (controller_name != "pages")? "#{root_path}#cta": "#cta", class: "scrolly"}
+											- if $lang == 'pl'
+												= translation.contactHeader_pl
+											- elsif $lang == 'en'
+												= translation.contactHeader_en
+											- else
+												= translation.contactHeader_it
+								%span.setLanguage
+									%a{:href => set_lang_path("pl")}
+										%span PL
+								%span.setLanguage
+									%a{:href => set_lang_path("en")}
+										%span EN
+								%span.setLanguage
+									%a{:href => set_lang_path("it")}
+										%span IT
 
 			= yield
 
@@ -69,6 +109,11 @@
 					%span.text-center
 						© All rights reserved.
 		
+		#rotator-container.owl-carousel{class: (@start_gallery.rotator)? "rotator":  "gallery"}
+			- @start_gallery.gallery_images.each do |i|
+				.item
+					.bg{style: "background-image: url(#{i.img.url})"} &nbsp;
+					
 		#menu-cover
 
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true

@@ -1,6 +1,7 @@
 class ShowroomsController < ApplicationController
   before_action :set_showroom, only: [:show, :edit, :update, :destroy]
-
+  layout 'admin'
+  
   # GET /showrooms
   # GET /showrooms.json
   def index
@@ -69,6 +70,6 @@ class ShowroomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def showroom_params
-      params.require(:showroom).permit(:content, :img)
+      params.require(:showroom).permit(:content_pl, :img)
     end
 end

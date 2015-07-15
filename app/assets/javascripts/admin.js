@@ -1,0 +1,12 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.scrollex.min
+//= require jquery.scrolly.min
+//= require skel.min
+//= require jquery.grid-a-licious.min
+//= require jquery.simplemodal
+//= require owl.carousel
+//= require underscore-min
+//= require lightbox.min
+//= require tinymce-jquery
+//= require init

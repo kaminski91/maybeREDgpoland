@@ -1,0 +1,10 @@
+= form_for(@made_in_g) do |f|
+  .form-group
+    .label Treść
+    = f.text_area :content, class: "form-control"
+  .form-group
+    .label Obrazek
+    = f.file_field :img, class: "form-control"
+
+  .form-group
+  = f.submit

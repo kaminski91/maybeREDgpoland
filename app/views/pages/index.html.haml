@@ -4,21 +4,48 @@
 			%h2
 				= image_tag "newLogo.png"
 		%p
-			=raw @static.startText
-	%a{href: "#one" , class:'more scrolly'} Poznaj nas
+			- if $lang == 'pl'
+				=raw @static.startText_pl
+			- elsif $lang == 'en'
+				=raw @static.startText_en
+			- else
+				=raw @static.startText_it
+	%a{href: "#one" , class: 'more scrolly'}
+		- if $lang == 'pl'
+			= translation.startMore_pl
+		- elsif $lang == 'en'
+			= translation.startMore_en
+		- else
+			= translation.startMore_it
 
-%section#one.wrapper.style1.special
+%section#one.wrapper.style1.style1-bg.special
 	.inner
 		%header.major
-			%h2 O nas
+			%h2
+				- if $lang == 'pl'
+					= translation.aboutHeader_pl
+				- elsif $lang == 'en'
+					= translation.aboutHeader_en
+				- else
+					= translation.aboutHeader_it
 			%p
-				=raw @static.aboutText
-
-
+				- if $lang == 'pl'
+					=raw @static.aboutText_pl
+				- elsif $lang == 'en'
+					=raw @static.aboutText_en
+				- else
+					=raw @static.aboutText_it
+			
 %section#pf.wrapper.portfolio.special
 	.inner
 		%header.major
-			%h2 Portfolio marek
+			%h2
+				- if $lang == 'pl'
+					= translation.portfolioHeader_pl
+				- elsif $lang == 'en'
+					= translation.portfolioHeader_en
+				- else
+					= translation.portfolioHeader_it
 			- @portfolio.each do |p|
 				.item{id: "portfolio-item-#{p.id}", "data-for" => "#portfolio-modal-#{p.id}"}
 					.logotype
@@ -26,96 +53,208 @@
 	- @portfolio.each do |p|
 		%div.portfolio-modal{id: "portfolio-modal-#{p.id}"}
 			%h3
-				= p.title
+				- if $lang == 'pl'
+					= p.title_pl
+				- elsif $lang == 'en'
+					= p.title_en
+				- else
+					= p.title_it
 			%p
-				=raw p.content
+				- if $lang == 'pl'
+					=raw p.content_pl
+				- elsif $lang == 'en'
+					=raw p.content_en
+				- else
+					=raw p.content_it
 			- if p.url
-				%a{href: p.url} Zobacz stronę producenta
+				%a{href: p.url} 
+					- if $lang == 'pl'
+						= translation.portfolioMore_pl
+					- elsif $lang == 'en'
+						= translation.portfolioMore_en
+					- else
+						= translation.portfolioMore_it
 
-%section#madeing.wrapper.style1.special
+%section#madeing.wrapper.alt.style2.special.gridalicious
 	.inner
 		%header.major
 			%h2 Made in G
-			%p
-				=raw @static.madeInGText
-	.container
-		.owl-carousel{class: (@madeing_gallery.rotator)? "rotator":  "gallery"}
-			- @madeing_gallery.gallery_images.each do |i|
-				%a{href: i.img.url, "data-lightbox"=>"madeingShowroom"}
-					= image_tag i.img.url(:thumb)
-
-%section#two.wrapper.alt.style2.special.gridalicious
-	.inner
-		%header.major 
-			%h2 Showroom
-	.container
-		.owl-carousel{class: (@showroom_gallery.rotator)? "rotator":  "gallery"}
-			- @showroom_gallery.gallery_images.each do |i|
-				%a{href: i.img.url, "data-lightbox"=>"roadShowroom"}
-					= image_tag i.img.url(:thumb)
-	- @showroom.each do |s|
+	- @madeing.each do |s|
 		%section.spotlight
 			.image
 				= image_tag s.img.url
 			.content
 				%p
-					=raw s.content
+					- if $lang == 'pl'
+						=raw s.content_pl
+					- elsif $lang == 'en'
+						=raw s.content_en
+					- else
+						=raw s.content_it
+	.container.owl-carousel-container
+		.owl-carousel{class: (@madeing_gallery.rotator)? "rotator":  "gallery"}
+			- @madeing_gallery.gallery_images.each do |i|
+				%a{href: i.img.url, "data-lightbox"=>"madeingShowroom"}
+					= image_tag i.img.url(:thumb)
 
 %section#retail.wrapper.style1.special
 	.inner
 		%header.major
 			%h2 Retail Academy
 			%p
-				=raw @static.retailAcademyText
+				- if $lang == 'pl'
+					=raw @static.retailAcademyText_pl
+				- elsif $lang == 'en'
+					=raw @static.retailAcademyText_en
+				- else
+					=raw @static.retailAcademyText_it
+
+%section#two.wrapper.alt.style2.special.gridalicious
+	.inner
+		%header.major 
+			%h2 Showroom
+	- @showroom.each do |s|
+		%section.spotlight
+			.image
+				= image_tag s.img.url
+			.content
+				%p
+					- if $lang == 'pl'
+						=raw s.content_pl
+					- elsif $lang == 'en'
+						=raw s.content_en
+					- else
+						=raw s.content_it
+	.container.owl-carousel-container
+		.owl-carousel{class: (@showroom_gallery.rotator)? "rotator":  "gallery"}
+			- @showroom_gallery.gallery_images.each do |i|
+				%a{href: i.img.url, "data-lightbox"=>"roadShowroom"}
+					= image_tag i.img.url(:thumb)
 
 %section#carieer.wrapper.style5.special
 	.inner
 		%header.major
-			%h2 Kariera
+			%h2
+				- if $lang == 'pl'
+					= translation.carieerHeader_pl
+				- elsif $lang == 'en'
+					= translation.carieerHeader_en
+				- else
+					= translation.carieerHeader_it
 			%p
-				=raw @static.carieerText
+				- if $lang == 'pl'
+					=raw @static.carieerText_pl
+				- elsif $lang == 'en'
+					=raw @static.carieerText_en
+				- else
+					=raw @static.carieerText_it
 
 %section#three.wrapper.style3.special
 	.inner
 		%header.major
-			%h2 Pozostań w kontakcie
-			%p śledź nas na
+			%h2
+				- if $lang == 'pl'
+					= translation.contactHeader_pl
+				- elsif $lang == 'en'
+					= translation.contactHeader_en
+				- else
+					= translation.contactHeader_it
+			%p
+				- if $lang == 'pl'
+					= translation.contactFollow_pl
+				- elsif $lang == 'en'
+					= translation.contactFollow_en
+				- else
+					= translation.contactFollow_it
 			%p 
 				%span.icon.fa-facebook-official
-				%span.icon.fa-twitter
 				%span.icon.fa-instagram
-				%span.icon.fa-tumblr
-		%ul.features
+		%ul#newses.features
 			- @news.each do |n|
-				%li
+				%li.news-item{id: "news-item-#{n.id}", "data-for" => "#news-modal-#{n.id}"}
 					%h3
 						= n.date
 					%p
-						= n.content 
+						- if $lang == 'pl'
+							= n.short_pl
+						- elsif $lang == 'en'
+							= n.short_en
+						- else
+							= n.short_it
+	- @news.each do |n|
+		%div.news-modal{id: "news-modal-#{n.id}"}
+			%h3
+				- if $lang == 'pl'
+					= n.title_pl
+				- elsif $lang == 'en'
+					= n.title_en
+				- else
+					= n.title_it
+			%p
+				= n.date
+			%p
+				- if $lang == 'pl'
+					=raw n.content_pl
+				- elsif $lang == 'en'
+					=raw n.content_en
+				- else
+					=raw n.content_it
 
 %section#cta.wrapper.style4 
 	.inner    
 		%header
 			%p
-				=raw @static.contactText
+				- if $lang == 'pl'
+					=raw @static.contactText_pl
+				- elsif $lang == 'en'
+					=raw @static.contactText_en
+				- else
+					=raw @static.contactText_it
 		%ul.actions.vertical
 			%li
 				%form
-					%label{for: "name"} Imię i nazwisko
+					%label{for: "name"}
+						- if $lang == 'pl'
+							= translation.formName_pl
+						- elsif $lang == 'en'
+							= translation.formName_en
+						- else
+							= translation.formName_it
 					%input{type: "text", name: "name"}/
-					%label{for: "email"} Adres email
+					%label{for: "email"}
+						- if $lang == 'pl'
+							= translation.formEmail_pl
+						- elsif $lang == 'en'
+							= translation.formEmail_en
+						- else
+							= translation.formEmail_it
 					%input{type: "email", name: "email"}/
-					%label{for: "tel"} Nr. telefonu
+					%label{for: "tel"}
+						- if $lang == 'pl'
+							= translation.formTel_pl
+						- elsif $lang == 'en'
+							= translation.formTel_en
+						- else
+							= translation.formTel_it
 					%input{type: "text", name: "tel"}/
-					%label{for: "content"} Treść
+					%label{for: "content"}
+						- if $lang == 'pl'
+							= translation.formContent_pl
+						- elsif $lang == 'en'
+							= translation.formContent_en
+						- else
+							= translation.formContent_it
 					%textarea{name: "content", :cols => "30", :rows => "5"}
-
-%script
-	= "var rotatorBg = ["
-	- @start_gallery.gallery_images.each_with_index do |img, i|
-		- if i != 0
-			= ","
-		= "'#{img.img.url}'"
-	= "];"
-
-
+					%br/
+					- if $lang == 'pl'
+						%input{:type => "submit", :value => translation.formSend_pl}/
+					- elsif $lang == 'en'
+						%input{:type => "submit", :value => translation.formSend_en}/
+					- else
+						%input{:type => "submit", :value => translation.formSend_it}/
+				%br/
+				%button#googleMapHrefButton
+					%a{href: "https://www.google.pl/maps/place/52%C2%B012'46.7%22N+20%C2%B057'19.5%22E/@52.21297,20.955412,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x0"}
+						Mapa
+	
+	#map-canvas-index

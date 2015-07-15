@@ -1,7 +1,7 @@
 = form_for(@showroom) do |f|
   .form-group
     .label Treść
-    = f.text_area :content, class: "form-control"
+    = f.text_area :content_pl, class: "form-control tinymce", rows: "6"
   .form-group
     .label Obrazek
     = f.file_field :img, class: "form-control"

@@ -1,0 +1,161 @@
+<%= form_for(@translation) do |f| %>
+  <% if @translation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@translation.errors.count, "error") %> prohibited this translation from being saved:</h2>
+
+      <ul>
+      <% @translation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :startMore_pl %><br>
+    <%= f.text_field :startMore_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :startMore_en %><br>
+    <%= f.text_field :startMore_en %>
+  </div>
+  <div class="field">
+    <%= f.label :startMore_it %><br>
+    <%= f.text_field :startMore_it %>
+  </div>
+  <div class="field">
+    <%= f.label :aboutHeader_pl %><br>
+    <%= f.text_field :aboutHeader_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :aboutHeader_en %><br>
+    <%= f.text_field :aboutHeader_en %>
+  </div>
+  <div class="field">
+    <%= f.label :aboutHeader_it %><br>
+    <%= f.text_field :aboutHeader_it %>
+  </div>
+  <div class="field">
+    <%= f.label :portfolioHeader_pl %><br>
+    <%= f.text_field :portfolioHeader_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :portfolioHeader_en %><br>
+    <%= f.text_field :portfolioHeader_en %>
+  </div>
+  <div class="field">
+    <%= f.label :portfolioHeader_it %><br>
+    <%= f.text_field :portfolioHeader_it %>
+  </div>
+  <div class="field">
+    <%= f.label :portfolioMore_pl %><br>
+    <%= f.text_field :portfolioMore_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :portfolioMore_en %><br>
+    <%= f.text_field :portfolioMore_en %>
+  </div>
+  <div class="field">
+    <%= f.label :portfolioMore_it %><br>
+    <%= f.text_field :portfolioMore_it %>
+  </div>
+  <div class="field">
+    <%= f.label :carieerHeader_pl %><br>
+    <%= f.text_field :carieerHeader_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :carieerHeader_en %><br>
+    <%= f.text_field :carieerHeader_en %>
+  </div>
+  <div class="field">
+    <%= f.label :carieerHeader_it %><br>
+    <%= f.text_field :carieerHeader_it %>
+  </div>
+  <div class="field">
+    <%= f.label :contactHeader_pl %><br>
+    <%= f.text_field :contactHeader_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :contactHeader_en %><br>
+    <%= f.text_field :contactHeader_en %>
+  </div>
+  <div class="field">
+    <%= f.label :contactHeader_it %><br>
+    <%= f.text_field :contactHeader_it %>
+  </div>
+  <div class="field">
+    <%= f.label :contactFollow_pl %><br>
+    <%= f.text_field :contactFollow_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :contactFollow_en %><br>
+    <%= f.text_field :contactFollow_en %>
+  </div>
+  <div class="field">
+    <%= f.label :contactFollow_it %><br>
+    <%= f.text_field :contactFollow_it %>
+  </div>
+  <div class="field">
+    <%= f.label :formName_pl %><br>
+    <%= f.text_field :formName_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :formName_en %><br>
+    <%= f.text_field :formName_en %>
+  </div>
+  <div class="field">
+    <%= f.label :formName_it %><br>
+    <%= f.text_field :formName_it %>
+  </div>
+  <div class="field">
+    <%= f.label :formEmail_pl %><br>
+    <%= f.text_field :formEmail_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :formEmail_en %><br>
+    <%= f.text_field :formEmail_en %>
+  </div>
+  <div class="field">
+    <%= f.label :formEmail_it %><br>
+    <%= f.text_field :formEmail_it %>
+  </div>
+  <div class="field">
+    <%= f.label :formTel_pl %><br>
+    <%= f.text_field :formTel_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :formTel_en %><br>
+    <%= f.text_field :formTel_en %>
+  </div>
+  <div class="field">
+    <%= f.label :formTel_it %><br>
+    <%= f.text_field :formTel_it %>
+  </div>
+  <div class="field">
+    <%= f.label :formContent_pl %><br>
+    <%= f.text_field :formContent_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :formContent_en %><br>
+    <%= f.text_field :formContent_en %>
+  </div>
+  <div class="field">
+    <%= f.label :formContent_it %><br>
+    <%= f.text_field :formContent_it %>
+  </div>
+  <div class="field">
+    <%= f.label :salonHeader_pl %><br>
+    <%= f.text_field :salonHeader_pl %>
+  </div>
+  <div class="field">
+    <%= f.label :salonHeader_en %><br>
+    <%= f.text_field :salonHeader_en %>
+  </div>
+  <div class="field">
+    <%= f.label :salonHeader_it %><br>
+    <%= f.text_field :salonHeader_it %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

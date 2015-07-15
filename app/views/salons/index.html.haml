@@ -12,38 +12,36 @@
 		.wrapper.style1.special.map-filter
 			%h3 Filtr salonów
 			.container
-				.form-group
-					%label Państwo
-					%select#country
-						%option{value: "null"} Wszystkie 
-				.form-group
-					%label Miasto
-					%select#city
-						%option{value: "null"} Wszystkie
-				.form-group
-					%label Marka
-					%select#brand
-						%option{value: "null"} Wszystkie
+				.row
+					.form-group.4u
+						%label Państwo
+						%select#country
+							%option{value: "null"} Wszystkie 
+					.form-group.4u
+						%label Miasto
+						%select#city
+							%option{value: "null"} Wszystkie
+					.form-group.4u
+						%label Marka
+						%select#brand
+							%option{value: "null"} Wszystkie
 			%h3 Salony
 			.row.container.header
 				.2u Marka
-				.2u Adres
+				.3u Adres
 				.2u Miasto
-				.6u Opis
+				.5u Opis
 			#salon-list.container
 				- @salons.each do |s|
 					.row
 						.2u
 							= s.brand
-						.2u
+						.3u
 							= s.address
 						.2u
 							= s.city
-						.6u
+						.5u
 							= s.description
-
-
-
 
 	%script
 		= "var mapPins = ["

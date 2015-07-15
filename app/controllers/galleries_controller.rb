@@ -1,5 +1,6 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+  layout 'admin'
 
   # GET /galleries
   # GET /galleries.json

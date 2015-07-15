@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require jquery.scrollex.min
 //= require jquery.scrolly.min
 //= require skel.min
@@ -21,4 +20,5 @@
 //= require owl.carousel
 //= require underscore-min
 //= require lightbox.min
+//= require tinymce-jquery
 //= require init
