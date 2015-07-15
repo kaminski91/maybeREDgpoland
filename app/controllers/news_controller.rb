@@ -1,4 +1,6 @@
 class NewsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin
   before_action :set_news, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
@@ -70,6 +72,6 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:date, :content)
+      params.require(:news).permit(:date, :content_pl, :content_en, :content_it, :title_pl, :title_en, :title_it, :short_pl, :short_en, :short_it, :active)
     end
 end

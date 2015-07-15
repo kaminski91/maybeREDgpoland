@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get '/salons', to: 'salons#index'
-  get '/salons/edit', to: 'salons#admin'
+  get '/salons/edit', to: 'salons#admin', as: 'admin_salons'
 
   get '/downloads', to: 'downloads#index'
   post '/downloads', to: 'downloads#create'

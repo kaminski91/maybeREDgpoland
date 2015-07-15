@@ -1,4 +1,6 @@
 class ShowroomsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin
   before_action :set_showroom, only: [:show, :edit, :update, :destroy]
   layout 'admin'
   
@@ -70,6 +72,6 @@ class ShowroomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def showroom_params
-      params.require(:showroom).permit(:content_pl, :img)
+      params.require(:showroom).permit(:content_pl, :content_en, :content_it, :img)
     end
 end

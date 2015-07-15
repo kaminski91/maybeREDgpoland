@@ -1,4 +1,6 @@
 class MadeInGsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin
   before_action :set_made_in_g, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
@@ -70,6 +72,6 @@ class MadeInGsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def made_in_g_params
-      params.require(:made_in_g).permit(:content, :img)
+      params.require(:made_in_g).permit(:content_pl, :content_en, :content_it, :img)
     end
 end

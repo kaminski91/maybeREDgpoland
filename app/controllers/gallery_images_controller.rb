@@ -1,4 +1,6 @@
 class GalleryImagesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin
   before_action :set_gallery_image, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 

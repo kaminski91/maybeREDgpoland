@@ -1,7 +1,13 @@
 = form_for(@made_in_g) do |f|
   .form-group
-    .label Treść
-    = f.text_area :content, class: "form-control"
+    .label Treść PL
+    = f.text_area :content_pl, class: "form-control"
+  .form-group
+    .label Treść en
+    = f.text_area :content_en, class: "form-control"
+  .form-group
+    .label Treść it
+    = f.text_area :content_it, class: "form-control"
   .form-group
     .label Obrazek
     = f.file_field :img, class: "form-control"

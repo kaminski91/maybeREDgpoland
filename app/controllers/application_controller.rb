@@ -26,4 +26,12 @@ class ApplicationController < ActionController::Base
   def translation
     translation = Translation.first
   end
+
+  def only_admin
+    if !current_user.admin 
+      redirect_to downloads_path
+      return
+    end
+  end
+
 end

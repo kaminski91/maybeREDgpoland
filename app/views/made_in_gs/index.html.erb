@@ -13,7 +13,7 @@
   <tbody>
     <% @made_in_gs.each do |made_in_g| %>
       <tr>
-        <td><%= made_in_g.content %></td>
+        <td><%=raw made_in_g.content_pl %></td>
         <td><%= link_to 'Show', made_in_g %></td>
         <td><%= link_to 'Edit', edit_made_in_g_path(made_in_g) %></td>
         <td><%= link_to 'Destroy', made_in_g, method: :delete, data: { confirm: 'Are you sure?' } %></td>

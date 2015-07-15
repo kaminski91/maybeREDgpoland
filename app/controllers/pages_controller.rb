@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: :index
+  before_action :only_admin, except: :index
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   # GET /pages
@@ -73,6 +75,8 @@ class PagesController < ApplicationController
   #   end
   # end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
@@ -81,6 +85,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:startText_pl, :aboutText_pl, :retailAcademyText_pl, :carieerText_pl, :contactText_pl, :startText_en, :aboutText_en, :retailAcademyText_en, :carieerText_en, :contactText_en, :startText_it, :aboutText_it, :retailAcademyText_it, :carieerText_it, :contactText_it)
+      params.require(:page).permit(:startText_pl, :aboutText_pl, :retailAcademyText_pl, :carieerText_pl, :contactText_pl, :startText_en, :startText_it, :aboutText_en, :aboutText_it, :retailAcademyText_en, :retailAcademyText_it, :carieerText_en, :carieerText_it, :contactText_en, :contactText_it)
     end
 end

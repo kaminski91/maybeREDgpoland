@@ -1,0 +1,84 @@
+= form_for(@page) do |f|
+
+  %br/
+  .field
+    = f.label :startText_pl 
+    %br/
+    = f.text_area :startText_pl, class: "tinymce"
+  %br/
+  .field
+    = f.label :startText_en
+    %br/
+    = f.text_area :startText_en, class: "tinymce"
+  %br/
+  .field
+    = f.label :startText_it
+    %br/
+    = f.text_area :startText_it, class: "tinymce"
+
+  %br/
+  .field
+    = f.label :aboutText_pl
+    %br/
+    = f.text_area :aboutText_pl, class: "tinymce"
+  %br/
+  .field
+    = f.label :aboutText_en
+    %br/
+    = f.text_area :aboutText_en, class: "tinymce"
+  %br/
+  .field
+    = f.label :aboutText_it
+    %br/
+    = f.text_area :aboutText_it, class: "tinymce"
+
+  %br/
+  .field
+    = f.label :retailAcademyText_pl 
+    %br/
+    = f.text_area :retailAcademyText_pl, class: "tinymce"
+  %br/
+  .field
+    = f.label :retailAcademyText_en 
+    %br/
+    = f.text_area :retailAcademyText_en, class: "tinymce"
+  %br/
+  .field
+    = f.label :retailAcademyText_it 
+    %br/
+    = f.text_area :retailAcademyText_it, class: "tinymce"
+
+  %br/
+  .field
+    = f.label :carieerText_pl 
+    %br/
+    = f.text_area :carieerText_pl, class: "tinymce"
+  %br/
+  .field
+    = f.label :carieerText_en 
+    %br/
+    = f.text_area :carieerText_en, class: "tinymce"
+  %br/
+  .field
+    = f.label :carieerText_it 
+    %br/
+    = f.text_area :carieerText_it, class: "tinymce"
+
+  %br/
+  .field
+    = f.label :contactText_pl 
+    %br/
+    = f.text_area :contactText_pl, class: "tinymce"
+  %br/
+  .field
+    = f.label :contactText_en 
+    %br/
+    = f.text_area :contactText_en, class: "tinymce"
+  %br/
+  .field
+    = f.label :contactText_it 
+    %br/
+    = f.text_area :contactText_it, class: "tinymce"
+
+  .actions
+    = f.submit

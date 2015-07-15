@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
@@ -70,6 +72,6 @@ class PortfoliosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :content, :brand, :img)
+      params.require(:portfolio).permit(:title_pl, :content_pl, :title_en, :content_en, :title_it, :content_it, :brand, :img)
     end
 end

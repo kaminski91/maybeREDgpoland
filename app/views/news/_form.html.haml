@@ -1,0 +1,47 @@
+= form_for(@news) do |f|
+  .field
+    = f.label :date
+    %br/
+    = f.date_select :date
+
+  .field
+    = f.label :title_pl
+    %br/
+    = f.text_area :title_pl
+  .field
+    = f.label :title_en
+    %br/
+    = f.text_area :title_en
+  .field
+    = f.label :title_it
+    %br/
+    = f.text_area :title_it
+
+  .field
+    = f.label :short_pl
+    %br/
+    = f.text_area :short_pl
+  .field
+    = f.label :short_en
+    %br/
+    = f.text_area :short_en
+  .field
+    = f.label :short_it
+    %br/
+    = f.text_area :short_it
+
+  .field
+    = f.label :content_pl
+    %br/
+    = f.text_area :content_pl
+  .field
+    = f.label :content_en
+    %br/
+    = f.text_area :content_en
+  .field
+    = f.label :content_it
+    %br/
+    = f.text_area :content_it
+
+  .actions
+    = f.submit

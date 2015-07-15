@@ -1,4 +1,6 @@
 class SalonsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin, except: :index
   before_action :set_salon, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: :index
 

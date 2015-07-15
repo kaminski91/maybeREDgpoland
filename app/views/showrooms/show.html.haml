@@ -1,0 +1,20 @@
+%p
+	%strong Content PL
+	= @showroom.content_pl
+
+%p
+	%strong Content en
+	= @showroom.content_en
+
+%p
+	%strong Content it
+	= @showroom.content_it
+
+%p
+	%strong Obrazek
+= image_tag @showroom.img.url
+
+%br/
+
+= link_to 'Edit', edit_showroom_path(@showroom)
+= link_to 'Back', showrooms_path 

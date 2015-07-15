@@ -1,4 +1,6 @@
 class TranslationsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_admin
   before_action :set_translation, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
@@ -70,6 +72,6 @@ class TranslationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def translation_params
-      params.require(:translation).permit(:startMore_pl, :startMore_en, :startMore_it, :aboutHeader_pl, :aboutHeader_en, :aboutHeader_it, :portfolioHeader_pl, :portfolioHeader_en, :portfolioHeader_it, :portfolioMore_pl, :portfolioMore_en, :portfolioMore_it, :carieerHeader_pl, :carieerHeader_en, :carieerHeader_it, :contactHeader_pl, :contactHeader_en, :contactHeader_it, :contactFollow_pl, :contactFollow_en, :contactFollow_it, :formName_pl, :formName_en, :formName_it, :formEmail_pl, :formEmail_en, :formEmail_it, :formTel_pl, :formTel_en, :formTel_it, :formContent_pl, :formContent_en, :formContent_it, :salonHeader_pl, :salonHeader_en, :salonHeader_it)
+      params.require(:translation).permit(:startMore_pl, :startMore_en, :startMore_it, :aboutHeader_pl, :aboutHeader_en, :aboutHeader_it, :portfolioHeader_pl, :portfolioHeader_en, :portfolioHeader_it, :portfolioMore_pl, :portfolioMore_en, :portfolioMore_it, :carieerHeader_pl, :carieerHeader_en, :carieerHeader_it, :contactHeader_pl, :contactHeader_en, :contactHeader_it, :contactFollow_pl, :contactFollow_en, :contactFollow_it, :formName_pl, :formName_en, :formName_it, :formEmail_pl, :formEmail_en, :formEmail_it, :formTel_pl, :formTel_en, :formTel_it, :formContent_pl, :formContent_en, :formContent_it, :salonHeader_pl, :salonHeader_en, :salonHeader_it, :portfolioMenu_pl, :portfolioMenu_en, :portfolioMenu_it, :formSend_pl, :formSend_en, :formSend_it, :formPass_pl, :formPass_en, :formPass_it, :formLogin_pl, :formLogin_en, :formLogin_it, :downloadHeader_pl, :downloadHeader_en, :downloadHeader_it)
     end
 end

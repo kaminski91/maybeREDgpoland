@@ -1,0 +1,28 @@
+%h2 PL
+%h4
+	= @portfolio.title_pl
+%p
+	=raw @portfolio.content_pl
+
+%h2 EN
+%h4
+	= @portfolio.title_en
+%p
+	=raw @portfolio.content_en
+
+%h2 IT
+%h4
+	= @portfolio.title_it
+%p
+	=raw @portfolio.content_it
+
+
+%h3 Logo marki
+= image_tag @portfolio.brand.url
+
+%h3 Obrazek
+= image_tag @portfolio.img.url
+
+%br/
+= link_to 'Edit', edit_portfolio_path(@portfolio)
+= link_to 'Back', portfolios_path
