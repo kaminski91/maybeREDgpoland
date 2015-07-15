@@ -85,11 +85,11 @@
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#cta": "#cta", class: "scrolly"}
 											- if $lang == 'pl'
-												= translation.contactHeader_pl
+												= translation.contactMenu_pl
 											- elsif $lang == 'en'
-												= translation.contactHeader_en
+												= translation.contactMenu_en
 											- else
-												= translation.contactHeader_it
+												= translation.contactMenu_it
 									- if user_signed_in?
 										%li
 											= link_to "Logout", destroy_user_session_path, :method => :delete

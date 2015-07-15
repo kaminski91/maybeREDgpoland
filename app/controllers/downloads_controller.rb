@@ -22,10 +22,12 @@ class DownloadsController < ApplicationController
   # GET /downloads/new
   def new
     @download = Download.new
+    @users = User.where(admin: false)
   end
 
   # GET /downloads/1/edit
   def edit
+    @users = User.where(admin: false)
   end
 
   # POST /downloads

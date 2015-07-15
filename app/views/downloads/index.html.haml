@@ -25,4 +25,4 @@
               .column
                 %i.fa.fa-file-o
               .column
-                = link_to d.file_file_name, d.file.url
+                = link_to File.basename(d.file.to_s, "?*"), d.file.url
