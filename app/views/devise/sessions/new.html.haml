@@ -12,13 +12,8 @@
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           %br/
-          - if $lang == 'pl'
-            = f.label :email, translation.formEmail_pl
-          - elsif $lang == 'en'
-            = f.label :email, translation.formEmail_en
-          - else
-            = f.label :email, translation.formEmail_it
-          = f.email_field :email, autofocus: true
+          = f.label :email, "Login"
+          = f.text_field :email, autofocus: true
         .field
           %br/
           - if $lang == 'pl'
