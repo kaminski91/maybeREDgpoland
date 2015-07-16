@@ -121,19 +121,41 @@ function createArrayOf(){ // funkcja tworząca tablice listOfCity, listOfCountry
     });
 }
 
+function MySort(alphabet)
+{
+    return function(a, b) {
+        var index_a = alphabet.indexOf(a[0]),
+        index_b = alphabet.indexOf(b[0]);
+
+        if (index_a === index_b) {
+            if (a < b) {
+                return -1;
+            } else if (a > b) {
+                return 1;
+            }
+            return 0;
+        } else {
+            return index_a - index_b;
+        }
+    }
+}
+
+var sorter = MySort('*!@_.()#^&%-=+01234567989AĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻaąbcćdeęfghijklłmnńoóprsśtuwyzźż');
+
+
 function appendSelect(){
     var countrySelect = $('#country');
-    for(i in listOfCountry.sort()) {
+    for(i in listOfCountry.sort(sorter)) {
         countrySelect.append('<option value="' + listOfCountry[i] + '"> ' + listOfCountry[i].capitalizeFirstLetter());
     }
 
     var citySelect = $('#city');
-    for(i in listOfCity.sort()) {
+    for(i in listOfCity.sort(sorter)) {
         citySelect.append('<option value="' + listOfCity[i] + '"> ' + listOfCity[i].capitalizeFirstLetter());
     }
 
     var brandSelect = $('#brand');
-    for(i in listOfBrand.sort()) {
+    for(i in listOfBrand.sort(sorter)) {
         brandSelect.append('<option value="' + listOfBrand[i] + '"> ' + listOfBrand[i].capitalizeFirstLetter());
     }
 //    var citySelect = document.getElementById('citySelect');

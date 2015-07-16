@@ -97,7 +97,7 @@
 				%a{href: i.img.url, "data-lightbox"=>"madeingShowroom"}
 					= image_tag i.img.url(:thumb)
 
-%section#retail.wrapper.style1.special
+%section#retail.wrapper.style1.style1-bg.special
 	.inner
 		%header.major
 			%h2 Retail Academy
@@ -167,8 +167,10 @@
 				- else
 					= translation.contactFollow_it
 			%p 
-				%span.icon.fa-facebook-official
-				%span.icon.fa-instagram
+				%a{:href => "https://www.facebook.com/GpolandGroup", target: "_blank"}
+					%span.icon.fa-facebook-official
+				%a{:href => "https://instagram.com/gpolandgroup/", target: "_blank"}
+					%span.icon.fa-instagram
 		%ul#newses.features
 			- @news.each do |n|
 				%li.news-item{id: "news-item-#{n.id}", "data-for" => "#news-modal-#{n.id}"}

@@ -34,8 +34,10 @@
 							#menu
 
 								.menu-social
-									%p.icon.fa-facebook-official
-									%p.icon.fa-instagram
+									%a{:href => "https://www.facebook.com/GpolandGroup", target: "_blank"}
+										%p.icon.fa-facebook-official
+									%a{:href => "https://instagram.com/gpolandgroup/", target: "_blank"}
+										%p.icon.fa-instagram
 
 								%ul
 									%li
@@ -59,9 +61,9 @@
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#madeing": "#madeing", class: "scrolly"} Made In G
 									%li
-										%a{href: (controller_name != "pages")? "#{root_path}#two": "#two", class: "scrolly"} Showroom
-									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#retail": "#retail", class: "scrolly"} Retail Academy
+									%li
+										%a{href: (controller_name != "pages")? "#{root_path}#two": "#two", class: "scrolly"} Showroom
 									%li
 										%a{href: (controller_name != "pages")? "#{root_path}#carieer": "#carieer", class: "scrolly"}
 											- if $lang == 'pl'

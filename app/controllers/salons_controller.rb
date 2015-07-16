@@ -1,13 +1,15 @@
 class SalonsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
   before_action :only_admin, except: :index
   before_action :set_salon, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: :index
 
+  require 'string_cmp_pl'
+
   # GET /salons
   # GET /salons.json
   def index
-    @salons = Salon.all
+    @salons = Salon.all.sort_by {|a| [a.brand, a.city, a.description]}
   end
 
   def admin
