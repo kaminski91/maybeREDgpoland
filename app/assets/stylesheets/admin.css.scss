@@ -1,3 +1,91 @@
-body {
+@import "materialize";
 
+#start {
+	header, main, footer, #alerts {
+		padding-left: 240px;
+	}
+	header {
+		#nav-mobile {
+			width: 240px;
+
+			.brand-logo {
+				font-weight: bold;
+			}
+
+			.menu-item, .menu-item a {
+				line-height: 40px;
+				height: 40px;
+			}
+
+			.menu-item {
+				.active::before {
+					font-family: FontAwesome;
+					content: "\f0a4";
+					display: inline-block;
+					padding-right: 5px;
+				}
+			}
+		}
+	}
+
+	main {
+		#adminMain {
+			.valign {
+				width: 100%;
+				padding: 20px 0;
+
+				.collapsible {
+					li {
+						.collapsible-header:before {
+							font-family: FontAwesome;
+							content: "\f105";
+							display: inline-block;
+							padding-right: 5px;
+						}
+
+						&.active {
+							.collapsible-header:before {
+								content: "\f107";
+							}
+						}
+					}
+
+					.field {
+						padding: 0 10px;
+					}
+				}
+
+				.collapsible-body {
+					> .row {
+						margin-bottom: 0;
+
+						.tabs {
+							a.active {
+								color: black;
+								font-weight: bold;
+							}
+
+							.indicator {
+								display: none;
+							}
+						}
+
+					}
+				}
+
+				.actions {
+					margin-top: 24px;
+					&.shifted {
+						margin: 0 24px;
+					}
+				}
+
+				.fixed-action-btn {
+					bottom: 50px;
+					right: 50px;
+				}
+
+			}
+		}
+	}
 }

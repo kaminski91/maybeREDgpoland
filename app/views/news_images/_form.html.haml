@@ -1,0 +1,12 @@
+= form_for(@news_image) do |f|
+  = f.hidden_field :news_id, value: @news_image.news_id
+
+  .file-field.input-field
+    .btn
+      %span Dodaj obraz
+      = f.file_field :img
+    .file-path-wrapper
+      %input.file-path.validate{type: "text"}
+
+  .actions
+    %button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

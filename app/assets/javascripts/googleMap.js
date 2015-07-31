@@ -67,7 +67,7 @@ function changeMapPinToView(country, city, brand){
 function printResults() {
     $('#salon-list').html('');
     for(i in mapPinToView) {
-        $('#salon-list').append('<div class="row"><div class="2u">' + mapPinToView[i].brand + '</div><div class="3u">' + mapPinToView[i].address + '</div><div class="2u">' + mapPinToView[i].city + '</div><div class="5u">' + mapPinToView[i].description + '</div></div>');
+        $('#salon-list').append('<div class="row"><div class="12u(small) 3u">' + mapPinToView[i].brand + '</div><div class="12u(small) 3u">' + mapPinToView[i].city + '</div><div class="12u(small) 6u">' + mapPinToView[i].description + '</div></div>');
     }
 }
 

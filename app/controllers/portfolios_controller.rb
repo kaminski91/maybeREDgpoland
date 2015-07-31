@@ -54,6 +54,34 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def down
+    @actual = Portfolio.find_by(np: params[:np])
+    max_order = Portfolio.all.order(:np).last.np
+
+    if @actual.np < max_order
+      tmp_np = @actual.np
+      @actual.update np: max_order + 1
+      Portfolio.find_by(np: tmp_np + 1).update np: tmp_np
+      @actual.update np: tmp_np + 1
+    end
+
+    redirect_to portfolios_path
+  end
+
+  def up
+    @actual = Portfolio.find_by(np: params[:np])
+    max_order = Portfolio.all.order(:np).last.np
+
+    if @actual.np > 1
+      tmp_np = @actual.np
+      @actual.update np: max_order - 1
+      Portfolio.find_by(np: tmp_np - 1).update np: tmp_np
+      @actual.update np: tmp_np - 1
+    end
+    
+    redirect_to portfolios_path
+  end
+
   # DELETE /portfolios/1
   # DELETE /portfolios/1.json
   def destroy
@@ -72,6 +100,6 @@ class PortfoliosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_params
-      params.require(:portfolio).permit(:title_pl, :content_pl, :title_en, :content_en, :title_it, :content_it, :brand, :img)
+      params.require(:portfolio).permit(:title_pl, :content_pl, :title_en, :content_en, :title_it, :content_it, :brand, :img, :www)
     end
 end

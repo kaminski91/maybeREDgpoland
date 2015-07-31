@@ -1,0 +1,69 @@
+.row
+  .col.s12
+    %ul.tabs
+      %li.tab.col.s4
+        %a.active{href: "#newsPL"} PL
+      %li.tab.col.s4
+        %a{href: "#newsEN"} EN
+      %li.tab.col.s4
+        %a{href: "#newsIT"} IT
+
+.row
+  .col.s12
+    .card
+      #newsPL.card-content
+        %h3
+          = @news.title_pl
+          %span.badge
+            = (@news.active)? "Aktywny" : "Ukryty"
+        %h5
+          = @news.date
+        %br/
+        %h5 Skrót newsa
+        %p
+          = @news.short_pl
+        %br/
+        %h5 Treść
+        %p
+          =raw @news.content_pl
+      #newsEN.card-content
+        %h3
+          = @news.title_en
+          %span.badge
+            = (@news.active)? "Aktywny" : "Ukryty"
+        %h5
+          = @news.date
+        %br/
+        %h5 Skrót newsa
+        %p
+          = @news.short_en
+        %br/
+        %h5 Treść
+        %p
+          =raw @news.content_en
+      #newsIT.card-content
+        %h3
+          = @news.title_it
+          %span.badge
+            = (@news.active)? "Aktywny" : "Ukryty"
+        %h5
+          = @news.date
+        %br/
+        %h5 Skrót newsa
+        %p
+          = @news.short_it
+        %br/
+        %h5 Treść
+        %p
+          =raw @news.content_it
+
+%h3 Obrazy newsa
+.row
+  - @news.news_images.each do |img|
+    .col.s12
+      = image_tag img.img.url, class: "materialboxed"
+      = link_to 'Usuń', img, method: :delete, data: { confirm: 'Na pewno?' }
+      
+.fixed-action-btn
+  %a.btn-floating.btn-large{href: edit_news_path(@news)}
+    %i.fa.fa-pencil

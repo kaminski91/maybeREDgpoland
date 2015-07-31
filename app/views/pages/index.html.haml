@@ -46,10 +46,11 @@
 					= translation.portfolioHeader_en
 				- else
 					= translation.portfolioHeader_it
-			- @portfolio.each do |p|
-				.item{id: "portfolio-item-#{p.id}", "data-for" => "#portfolio-modal-#{p.id}"}
-					.logotype
-						= image_tag p.brand.url
+			#pf-container.row
+				- @portfolio.each do |p|
+					.item{id: "portfolio-item-#{p.id}", "data-for" => "#portfolio-modal-#{p.id}", class: "pf-item-#{p.np} 3u(large) 4u(medium) 6u(small) 12u(xsmall) 3u"}
+						.logotype
+							= image_tag p.brand.url
 	- @portfolio.each do |p|
 		%div.portfolio-modal{id: "portfolio-modal-#{p.id}"}
 			%h3
@@ -66,8 +67,8 @@
 					=raw p.content_en
 				- else
 					=raw p.content_it
-			- if p.url
-				%a{href: p.url} 
+			- if p.www
+				%a{href: p.www, target: "_blank"} 
 					- if $lang == 'pl'
 						= translation.portfolioMore_pl
 					- elsif $lang == 'en'
@@ -101,6 +102,7 @@
 	.inner
 		%header.major
 			%h2 Retail Academy
+			= image_tag @static.retail_img.url, class: "responsive-img"
 			%p
 				- if $lang == 'pl'
 					=raw @static.retailAcademyText_pl
@@ -178,11 +180,11 @@
 						= n.date
 					%p
 						- if $lang == 'pl'
-							= n.short_pl
+							=raw n.short_pl
 						- elsif $lang == 'en'
-							= n.short_en
+							=raw n.short_en
 						- else
-							= n.short_it
+							=raw n.short_it
 	- @news.each do |n|
 		%div.news-modal{id: "news-modal-#{n.id}"}
 			%h3
@@ -202,6 +204,10 @@
 				- else
 					=raw n.content_it
 
+			- n.news_images.each do |img|
+				.row
+					= image_tag img.img.url, class: "center-align"
+
 %section#cta.wrapper.style4 
 	.inner    
 		%header
@@ -212,9 +218,16 @@
 					=raw @static.contactText_en
 				- else
 					=raw @static.contactText_it
+			%a#googleMapHrefButton.button{href: 'https://www.google.pl/maps/dir//52.2129722,20.9554167/@52.2128521,20.881662,12z/data=!3m1!4b1'}
+				- if $lang == 'pl'
+					= translation.map_pl
+				- elsif $lang == 'en'
+					= translation.map_en
+				- else
+					= translation.map_it
 		%ul.actions.vertical
 			%li
-				%form
+				= form_tag("/send", method: "post") do
 					%label{for: "name"}
 						- if $lang == 'pl'
 							= translation.formName_pl
@@ -254,9 +267,5 @@
 						%input{:type => "submit", :value => translation.formSend_en}/
 					- else
 						%input{:type => "submit", :value => translation.formSend_it}/
-				%br/
-				%button#googleMapHrefButton
-					%a{href: "https://www.google.pl/maps/place/52%C2%B012'46.7%22N+20%C2%B057'19.5%22E/@52.21297,20.955412,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x0"}
-						Mapa
 	
 	#map-canvas-index

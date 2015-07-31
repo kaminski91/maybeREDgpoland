@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715223801) do
+ActiveRecord::Schema.define(version: 20150723124451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,11 +77,23 @@ ActiveRecord::Schema.define(version: 20150715223801) do
     t.boolean  "active"
   end
 
+  create_table "news_images", force: :cascade do |t|
+    t.integer  "news_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+  end
+
+  add_index "news_images", ["news_id"], name: "index_news_images_on_news_id", using: :btree
+
   create_table "pages", force: :cascade do |t|
     t.text     "startText_pl"
     t.text     "aboutText_pl"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.text     "retailAcademyText_pl"
     t.text     "carieerText_pl"
     t.text     "contactText_pl"
@@ -95,6 +107,10 @@ ActiveRecord::Schema.define(version: 20150715223801) do
     t.text     "carieerText_it"
     t.text     "contactText_en"
     t.text     "contactText_it"
+    t.string   "retail_img_file_name"
+    t.string   "retail_img_content_type"
+    t.integer  "retail_img_file_size"
+    t.datetime "retail_img_updated_at"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -110,12 +126,15 @@ ActiveRecord::Schema.define(version: 20150715223801) do
     t.datetime "img_updated_at"
     t.string   "title_pl"
     t.text     "content_pl"
-    t.string   "url"
+    t.string   "www"
     t.string   "title_en"
     t.string   "title_it"
     t.text     "content_en"
     t.text     "content_it"
+    t.integer  "np"
   end
+
+  add_index "portfolios", ["np"], name: "index_portfolios_on_np", using: :btree
 
   create_table "salons", force: :cascade do |t|
     t.string   "brand"
@@ -182,8 +201,8 @@ ActiveRecord::Schema.define(version: 20150715223801) do
     t.string   "salonHeader_pl"
     t.string   "salonHeader_en"
     t.string   "salonHeader_it"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "portfolioMenu_pl"
     t.string   "portfolioMenu_en"
     t.string   "portfolioMenu_it"
@@ -205,6 +224,30 @@ ActiveRecord::Schema.define(version: 20150715223801) do
     t.string   "newsHeader_pl"
     t.string   "newsHeader_en"
     t.string   "newsHeader_it"
+    t.string   "map_pl"
+    t.string   "map_en"
+    t.string   "map_it"
+    t.string   "salonText_pl"
+    t.string   "salonText_en"
+    t.string   "salonText_it"
+    t.string   "salonFilter_pl"
+    t.string   "salonFilter_en"
+    t.string   "salonFilter_it"
+    t.string   "salonFilterCountry_pl"
+    t.string   "salonFilterCountry_en"
+    t.string   "salonFilterCountry_it"
+    t.string   "salonFilterCity_pl"
+    t.string   "salonFilterCity_en"
+    t.string   "salonFilterCity_it"
+    t.string   "salonFilterBrand_pl"
+    t.string   "salonFilterBrand_en"
+    t.string   "salonFilterBrand_it"
+    t.string   "salonFilterLocalization_pl"
+    t.string   "salonFilterLocalization_en"
+    t.string   "salonFilterLocalization_it"
+    t.string   "salonFilterAll_pl"
+    t.string   "salonFilterAll_en"
+    t.string   "salonFilterAll_it"
   end
 
   create_table "users", force: :cascade do |t|
@@ -228,4 +271,5 @@ ActiveRecord::Schema.define(version: 20150715223801) do
 
   add_foreign_key "downloads", "users"
   add_foreign_key "gallery_images", "galleries"
+  add_foreign_key "news_images", "news"
 end

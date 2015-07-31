@@ -1,0 +1,33 @@
+%h1 News
+
+%table.responsive-table
+  %thead
+    %tr
+      %th Data
+      %th Tytuł
+      %th Aktywny
+      %th{colspan: "4"}/
+  %tbody
+    - @news.order(date: :desc).each do |news|
+      %tr
+        %td
+          = news.date
+        %td
+          = news.title_pl
+        %td
+          - if news.active
+            %i.fa.fa-check
+          - else
+            %i.fa.fa-times  
+        %td
+          = link_to 'Dodaj obrazek', new_news_image_path(n: news.id)
+        %td
+          = link_to 'Wyświetl', news
+        %td
+          = link_to 'Edytuj', edit_news_path(news)
+        %td
+          = link_to 'Usuń', news, method: :delete, data: { confirm: 'Na pewno?' }
+
+.fixed-action-btn
+  %a.btn-floating.btn-large{href: new_news_path}
+    %i.fa.fa-plus

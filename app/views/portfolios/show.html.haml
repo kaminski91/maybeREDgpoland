@@ -1,28 +1,38 @@
-%h2 PL
-%h4
-	= @portfolio.title_pl
-%p
-	=raw @portfolio.content_pl
+.row
+	.col.s12
+		%ul.tabs
+			%li.tab.col.s4
+				%a.active{href: "#portfolioPL"} PL
+			%li.tab.col.s4
+				%a{href: "#portfolioEN"} EN
+			%li.tab.col.s4
+				%a{href: "#portfolioIT"} IT
 
-%h2 EN
-%h4
-	= @portfolio.title_en
-%p
-	=raw @portfolio.content_en
-
-%h2 IT
-%h4
-	= @portfolio.title_it
-%p
-	=raw @portfolio.content_it
-
-
-%h3 Logo marki
-= image_tag @portfolio.brand.url
-
-%h3 Obrazek
-= image_tag @portfolio.img.url
-
-%br/
-= link_to 'Edit', edit_portfolio_path(@portfolio)
-= link_to 'Back', portfolios_path
+.row
+	.col.s12
+		.card
+			.card-image
+				= image_tag @portfolio.brand.url
+			#portfolioPL.card-content
+				%h4
+					= @portfolio.title_pl
+				%p
+					=raw @portfolio.content_pl
+				- if @portfolio.www.nil?
+					%p Brak adresu sklepu
+				- else
+					= link_to @portfolio.www, @portfolio.www, class: "button"
+			#portfolioEN.card-content
+				%h4
+					= @portfolio.title_en
+				%p
+					=raw @portfolio.content_en
+			#portfolioIT.card-content
+				%h4
+					= @portfolio.title_it
+				%p
+					=raw @portfolio.content_it
+			
+.fixed-action-btn
+	%a.btn-floating.btn-large{href: edit_portfolio_path(@portfolio)}
+		%i.fa.fa-pencil

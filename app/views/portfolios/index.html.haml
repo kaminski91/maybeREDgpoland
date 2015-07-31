@@ -1,0 +1,34 @@
+%h1 Portfolio
+
+%table.responsive-table
+  %thead
+    %tr
+      %th Np.
+      %th Tytuł
+      %th{colspan: "5"}/
+  %tbody
+    - @portfolios.order(:np).each_with_index do |portfolio, i|
+      %tr
+        %td
+          = portfolio.np
+        %td
+          = portfolio.title_pl
+        %td
+          - if i > 0
+            %a{href: portfolios_up_path(portfolio.np)}
+              %i.fa.fa-arrow-up
+        %td
+          - if i < @portfolios.length - 1
+            %a{href: portfolios_down_path(portfolio.np)}
+              %i.fa.fa-arrow-down
+        %td
+          = link_to 'Wyświetl', portfolio
+        %td
+          = link_to 'Edytuj', edit_portfolio_path(portfolio)
+        %td
+          = link_to 'Usuń', portfolio, method: :delete, data: { confirm: 'Na pewno?' }
+
+
+.fixed-action-btn
+  %a.btn-floating.btn-large{href: new_portfolio_path}
+    %i.fa.fa-plus

@@ -1,31 +1,52 @@
 = form_for(@portfolio) do |f|
-  .form-group
-    .label Tytuł PL
-    = f.text_field :title_pl, class: "form-control"
-  .form-group
-    .label Treść PL
-    = f.text_area :content_pl, class: "form-control tinymce"
+	.row
+		.col.s12
+			.card
+				.card-image
+					= image_tag @portfolio.brand.url
+				.card-content
+					.file-field.input-field
+						.btn
+							%span Zmień logo
+							= f.file_field :brand
+						.file-path-wrapper
+							%input.file-path.validate{type: "text"}
 
-  .form-group
-    .label Tytuł EN
-    = f.text_field :title_en, class: "form-control"
-  .form-group
-    .label Treść EN
-    = f.text_area :content_en, class: "form-control tinymce"
+	.row
+		.col.s12
+			%ul.tabs
+				%li.tab.col.s4
+					%a.active{href: "#portfolioPL"} PL
+				%li.tab.col.s4
+					%a{href: "#portfolioEN"} EN
+				%li.tab.col.s4
+					%a{href: "#portfolioIT"} IT
+				 
+	#portfolioPL
+		.input-field
+			%h5 Tytuł
+			= f.text_field :title_pl, class: "validate"
+		.field
+			%h5 Treść
+			= f.text_area :content_pl, class: "tinymce"
+	#portfolioEN
+		.input-field
+			%h5 Tytuł
+			= f.text_field :title_en, class: "validate"
+		.field
+			%h5 Treść
+			= f.text_area :content_en, class: "tinymce"
+	#portfolioIT
+		.input-field
+			%h5 Tytuł
+			= f.text_field :title_it, class: "validate"
+		.field
+			%h5 Treść
+			= f.text_area :content_it, class: "tinymce"
 
-  .form-group
-    .label Tytuł IT
-    = f.text_field :title_it, class: "form-control"
-  .form-group
-    .label Treść IT
-    = f.text_area :content_it, class: "form-control tinymce"
+	.input-field
+		%h5 Adres WWW strony
+		= f.text_field :www, class: "validate"
 
-  .form-group
-    .label Logo marki
-    = f.file_field :brand, class: "form-control"
-  .form-group
-    .label Obrazek
-    = f.file_field :img, class: "form-control"
-
-  .form-group
-  = f.submit
+	.actions
+		%button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

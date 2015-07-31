@@ -18,7 +18,8 @@ class GalleryImagesController < ApplicationController
   # GET /gallery_images/new
   def new
     if params[:g].present?
-      @gallery_image = Gallery.find(params[:g]).gallery_images.new
+      @gallery = Gallery.find(params[:g])
+      @gallery_image = @gallery.gallery_images.new
     else
       redirect_to new_gallery_path
     end
@@ -65,7 +66,7 @@ class GalleryImagesController < ApplicationController
   def destroy
     @gallery_image.destroy
     respond_to do |format|
-      format.html { redirect_to gallery_images_url, notice: 'Gallery image was successfully destroyed.' }
+      format.html { redirect_to @gallery_image.gallery, notice: 'Gallery image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -3,50 +3,126 @@
 
 %article#main
 	%header#salony
-		%h2 Salony
-		%p Sprawdź gdzie posiadamy swoje salony
+		%h2
+			- if $lang == 'pl'
+				= translation.salonHeader_pl
+			- elsif $lang == 'en'
+				= translation.salonHeader_en
+			- else
+				= translation.salonHeader_it
+		%p
+			- if $lang == 'pl'
+				= translation.salonText_pl
+			- elsif $lang == 'en'
+				= translation.salonText_en
+			- else
+				= translation.salonText_it
 
 	#map-canvas
 
 	.inner
 		.wrapper.style1.special.map-filter
-			%h3 Filtr salonów
+			%h3 
+				- if $lang == 'pl'
+					= translation.salonFilter_pl
+				- elsif $lang == 'en'
+					= translation.salonFilter_en
+				- else
+					= translation.salonFilter_it
 			.container
 				.row
 					.form-group.4u
-						%label Państwo
+						%label
+							- if $lang == 'pl'
+								= translation.salonFilterCountry_pl
+							- elsif $lang == 'en'
+								= translation.salonFilterCountry_en
+							- else
+								= translation.salonFilterCountry_it
 						%select#country
-							%option{value: "null"} Wszystkie 
+							%option{value: "null"}
+								- if $lang == 'pl'
+									= translation.salonFilterAll_pl
+								- elsif $lang == 'en'
+									= translation.salonFilterAll_en
+								- else
+									= translation.salonFilterAll_it
 					.form-group.4u
-						%label Miasto
+						%label
+							- if $lang == 'pl'
+								= translation.salonFilterCity_pl
+							- elsif $lang == 'en'
+								= translation.salonFilterCity_en
+							- else
+								= translation.salonFilterCity_it
 						%select#city
-							%option{value: "null"} Wszystkie
+							%option{value: "null"}
+								- if $lang == 'pl'
+									= translation.salonFilterAll_pl
+								- elsif $lang == 'en'
+									= translation.salonFilterAll_en
+								- else
+									= translation.salonFilterAll_it
 					.form-group.4u
-						%label Marka
+						%label
+							- if $lang == 'pl'
+								= translation.salonFilterBrand_pl
+							- elsif $lang == 'en'
+								= translation.salonFilterBrand_en
+							- else
+								= translation.salonFilterBrand_it
 						%select#brand
-							%option{value: "null"} Wszystkie
-			%h3 Salony
-			.row.container.header
-				.2u Marka
-				.3u Adres
-				.2u Miasto
-				.5u Opis
+							%option{value: "null"}
+								- if $lang == 'pl'
+									= translation.salonFilterAll_pl
+								- elsif $lang == 'en'
+									= translation.salonFilterAll_en
+								- else
+									= translation.salonFilterAll_it
+			%h3
+				- if $lang == 'pl'
+					= translation.salonHeader_pl
+				- elsif $lang == 'en'
+					= translation.salonHeader_en
+				- else
+					= translation.salonHeader_it
+			#salon-list-header.container.header
+				.row
+					%div{class: "12u(small) 3u"}
+						- if $lang == 'pl'
+							= translation.salonFilterBrand_pl
+						- elsif $lang == 'en'
+							= translation.salonFilterBrand_en
+						- else
+							= translation.salonFilterBrand_it
+					%div{class: "12u(small) 3u"} 
+						- if $lang == 'pl'
+							= translation.salonFilterCity_pl
+						- elsif $lang == 'en'
+							= translation.salonFilterCity_en
+						- else
+							= translation.salonFilterCity_it
+					%div{class: "12u(small) 6u"}
+						- if $lang == 'pl'
+							= translation.salonFilterLocalization_pl
+						- elsif $lang == 'en'
+							= translation.salonFilterLocalization_en
+						- else
+							= translation.salonFilterLocalization_it
 			#salon-list.container
 				- @salons.each do |s|
 					.row
-						.2u
+						%div{class: "12u(small) 3u"}
 							= s.brand
-						.3u
-							= s.address
-						.2u
+						%div{class: "12u(small) 3u"}
 							= s.city
-						.5u
-							= s.description
+						%div{class: "12u(small) 6u"}
+							=raw s.description
 
 	%script
 		= "var mapPins = ["
 		- @salons.each_with_index do |s, i|
 			- if i != 0
 				= ","
-			= "{id: '#{s.id}', brand: '#{s.brand}', positionX: #{s.posX}, positionY: #{s.posY}, country: '#{s.country}', city: '#{s.city}', address: '#{s.address}', description: '#{s.description}'}"
+			= "{id: '#{s.id}', brand: '#{s.brand}', positionX: #{s.posX}, positionY: #{s.posY}, country: '#{s.country}', city: '#{s.city}', address: '#{s.address}', description: '#{raw s.description}'}"
 		= "];"

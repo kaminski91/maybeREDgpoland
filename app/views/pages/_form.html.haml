@@ -1,84 +1,101 @@
 = form_for(@page) do |f|
-
-  %br/
-  .field
-    = f.label :startText_pl 
-    %br/
-    = f.text_area :startText_pl, class: "tinymce"
-  %br/
-  .field
-    = f.label :startText_en
-    %br/
-    = f.text_area :startText_en, class: "tinymce"
-  %br/
-  .field
-    = f.label :startText_it
-    %br/
-    = f.text_area :startText_it, class: "tinymce"
-
-  %br/
-  .field
-    = f.label :aboutText_pl
-    %br/
-    = f.text_area :aboutText_pl, class: "tinymce"
-  %br/
-  .field
-    = f.label :aboutText_en
-    %br/
-    = f.text_area :aboutText_en, class: "tinymce"
-  %br/
-  .field
-    = f.label :aboutText_it
-    %br/
-    = f.text_area :aboutText_it, class: "tinymce"
-
-  %br/
-  .field
-    = f.label :retailAcademyText_pl 
-    %br/
-    = f.text_area :retailAcademyText_pl, class: "tinymce"
-  %br/
-  .field
-    = f.label :retailAcademyText_en 
-    %br/
-    = f.text_area :retailAcademyText_en, class: "tinymce"
-  %br/
-  .field
-    = f.label :retailAcademyText_it 
-    %br/
-    = f.text_area :retailAcademyText_it, class: "tinymce"
-
-  %br/
-  .field
-    = f.label :carieerText_pl 
-    %br/
-    = f.text_area :carieerText_pl, class: "tinymce"
-  %br/
-  .field
-    = f.label :carieerText_en 
-    %br/
-    = f.text_area :carieerText_en, class: "tinymce"
-  %br/
-  .field
-    = f.label :carieerText_it 
-    %br/
-    = f.text_area :carieerText_it, class: "tinymce"
-
-  %br/
-  .field
-    = f.label :contactText_pl 
-    %br/
-    = f.text_area :contactText_pl, class: "tinymce"
-  %br/
-  .field
-    = f.label :contactText_en 
-    %br/
-    = f.text_area :contactText_en, class: "tinymce"
-  %br/
-  .field
-    = f.label :contactText_it 
-    %br/
-    = f.text_area :contactText_it, class: "tinymce"
-
-  .actions
-    = f.submit
+	%ul.collapsible.popout{'data-collapsible' => 'accordion'}
+		%li
+			.collapsible-header Tekst strony START
+			.collapsible-body
+				.row
+					.col.s12
+						%ul.tabs
+							%li.tab.col.s4
+								%a.active{href: "#startPL"} PL
+							%li.tab.col.s4
+								%a{href: "#startEN"} EN
+							%li.tab.col.s4
+								%a{href: "#startIT"} IT
+				#startPL.field{"data-tablang" => "pl"}
+					= f.text_area :startText_pl, class: "tinymce"
+				#startEN.field{"data-tablang" => "en"}
+					= f.text_area :startText_en, class: "tinymce"
+				#startIT.field{"data-tablang" => "it"}
+					= f.text_area :startText_it, class: "tinymce"
+		%li
+			.collapsible-header Tekst strony O NAS
+			.collapsible-body
+				.row
+					.col.s12
+						%ul.tabs
+							%li.tab.col.s4
+								%a{href: "#aboutPL"} PL
+							%li.tab.col.s4
+								%a{href: "#aboutEN"} EN
+							%li.tab.col.s4
+								%a{href: "#aboutIT"} IT
+				#aboutPL.field
+					= f.text_area :aboutText_pl, class: "tinymce"
+				#aboutEN.field
+					= f.text_area :aboutText_en, class: "tinymce"
+				#aboutIT.field
+					= f.text_area :aboutText_it, class: "tinymce"
+		%li
+			.collapsible-header Tekst strony RETAIL ACADEMY
+			.collapsible-body
+				.row
+					.col.s12
+						%ul.tabs
+							%li.tab.col.s4
+								%a{href: "#retailPL"} PL
+							%li.tab.col.s4
+								%a{href: "#retailEN"} EN
+							%li.tab.col.s4
+								%a{href: "#retailIT"} IT
+				#retailPL.field
+					= f.text_area :retailAcademyText_pl, class: "tinymce"
+				#retailEN.field
+					= f.text_area :retailAcademyText_en, class: "tinymce"
+				#retailIT.field
+					= f.text_area :retailAcademyText_it, class: "tinymce"
+				= image_tag @page.retail_img.url, class: "responsive-img"
+				.file-field.input-field
+					.btn
+						%span Zmień logo
+						= f.file_field :retail_img
+					.file-path-wrapper
+						%input.file-path.validate{type: "text"}
+		%li
+			.collapsible-header Tekst strony KARIERA
+			.collapsible-body
+				.row
+					.col.s12
+						%ul.tabs
+							%li.tab.col.s4
+								%a{href: "#carieerPL"} PL
+							%li.tab.col.s4
+								%a{href: "#carieerEN"} EN
+							%li.tab.col.s4
+								%a{href: "#carieerIT"} IT
+				#carieerPL.field
+					= f.text_area :carieerText_pl, class: "tinymce"
+				#carieerEN.field
+					= f.text_area :carieerText_en, class: "tinymce"
+				#carieerIT.field
+					= f.text_area :carieerText_it, class: "tinymce"
+		%li
+			.collapsible-header Tekst strony KONTAKT
+			.collapsible-body
+				.row
+					.col.s12
+						%ul.tabs
+							%li.tab.col.s4
+								%a{href: "#contactPL"} PL
+							%li.tab.col.s4
+								%a{href: "#contactEN"} EN
+							%li.tab.col.s4
+								%a{href: "#contactIT"} IT
+				#contactPL.field
+					= f.text_area :contactText_pl, class: "tinymce"
+				#contactEN.field
+					= f.text_area :contactText_en, class: "tinymce"
+				#contactIT.field
+					= f.text_area :contactText_it, class: "tinymce"
+	.actions.shifted
+		%button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

@@ -1,16 +1,39 @@
 = form_for(@made_in_g) do |f|
-  .form-group
-    .label Treść PL
-    = f.text_area :content_pl, class: "form-control"
-  .form-group
-    .label Treść en
-    = f.text_area :content_en, class: "form-control"
-  .form-group
-    .label Treść it
-    = f.text_area :content_it, class: "form-control"
-  .form-group
-    .label Obrazek
-    = f.file_field :img, class: "form-control"
+  .row
+    .col.s12
+      .card
+        .card-image
+          = image_tag @made_in_g.img.url
+        .card-content
+          .file-field.input-field
+            .btn
+              %span Zmień obrazek
+              = f.file_field :img
+            .file-path-wrapper
+              %input.file-path.validate{type: "text"}
 
-  .form-group
-  = f.submit
+  .row
+    .col.s12
+      %ul.tabs
+        %li.tab.col.s4
+          %a.active{href: "#made_in_gPL"} PL
+        %li.tab.col.s4
+          %a{href: "#made_in_gEN"} EN
+        %li.tab.col.s4
+          %a{href: "#made_in_gIT"} IT
+         
+  #made_in_gPL
+    .field
+      %h5 Treść
+      = f.text_area :content_pl, class: "tinymce"
+  #made_in_gEN
+    .field
+      %h5 Treść
+      = f.text_area :content_en, class: "tinymce"
+  #made_in_gIT
+    .field
+      %h5 Treść
+      = f.text_area :content_it, class: "tinymce"
+
+  .actions
+    %button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

@@ -1,0 +1,22 @@
+%h1 Galerie
+
+%table.responsive-table
+  %thead
+    %tr
+      %th Nazwa
+      %th Rotator
+      %th{colspan: "2"}/
+  %tbody
+    - @galleries.order(:id).each do |gallery|
+      %tr
+        %td
+          = gallery.name
+        %td
+          - if gallery.rotator
+            %i.fa.fa-check
+          - else
+            %i.fa.fa-times
+        %td
+          = link_to 'Wyświetl', gallery
+        %td
+          = link_to 'Dodaj zdjęcie', new_gallery_image_path(g: gallery.id)

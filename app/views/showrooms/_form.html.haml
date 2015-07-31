@@ -1,16 +1,39 @@
 = form_for(@showroom) do |f|
-  .form-group
-    .label Treść PL
-    = f.text_area :content_pl, class: "form-control tinymce", rows: "6"
-  .form-group
-    .label Treść en
-    = f.text_area :content_en, class: "form-control tinymce", rows: "6"
-  .form-group
-    .label Treść it
-    = f.text_area :content_it, class: "form-control tinymce", rows: "6"
-  .form-group
-    .label Obrazek
-    = f.file_field :img, class: "form-control"
+  .row
+    .col.s12
+      .card
+        .card-image
+          = image_tag @showroom.img.url
+        .card-content
+          .file-field.input-field
+            .btn
+              %span Zmień obrazek
+              = f.file_field :img
+            .file-path-wrapper
+              %input.file-path.validate{type: "text"}
 
-  .form-group
-  = f.submit
+  .row
+    .col.s12
+      %ul.tabs
+        %li.tab.col.s4
+          %a.active{href: "#showroomPL"} PL
+        %li.tab.col.s4
+          %a{href: "#showroomEN"} EN
+        %li.tab.col.s4
+          %a{href: "#showroomIT"} IT
+         
+  #showroomPL
+    .field
+      %h5 Treść
+      = f.text_area :content_pl, class: "tinymce"
+  #showroomEN
+    .field
+      %h5 Treść
+      = f.text_area :content_en, class: "tinymce"
+  #showroomIT
+    .field
+      %h5 Treść
+      = f.text_area :content_it, class: "tinymce"
+
+  .actions
+    %button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

@@ -8,7 +8,6 @@
 		= csrf_meta_tags
 
 		%link{href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', rel: 'stylesheet', type: 'text/css'}
-		%script{src: 'https://maps.googleapis.com/maps/api/js'}
 
 		/[if lt IE 8]
 			%script{src: 'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'}
@@ -20,9 +19,53 @@
 			= stylesheet_link_tag 'v8', media: 'all', 'data-turbolinks-track' => true
 
 	%body#start.landing
-		= yield
+		%header
+			%nav
+				.container
+					.nav-wrapper
+						= link_to "Panel administracyjny", admin_path, class: "brand-logo"
 
-		%hr/
-		=link_to 'Powrót do panelu admina', admin_path if params[:controller] != "pages" || (params[:controller] == "pages" && params[:action] == "edit")
+			%ul#nav-mobile.side-nav.fixed{style: "width: 240px;"}
+				%li.logo
+					%a#logo-container.brand-logo{href: root_path} GPoland
+
+				%li.menu-item
+					=link_to "Treści statyczne", edit_page_path(1), class: (controller?("pages") && !action?("admin"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Portfolia marek", portfolios_path, class: (controller?("portfolios"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Showroom", showrooms_path, class: (controller?("showrooms"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Made In G", made_in_gs_path, class: (controller?("made_in_gs"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "News", news_index_path, class: (controller?("news") || controller?("news_images"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Salony", admin_salons_path, class: (controller?("salons"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Galerie", galleries_path, class: (controller?("galleries") || controller?("gallery_images"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Tłumaczenia", edit_translation_path(1), class: (controller?("translations"))? "active" : "waves-effect"
+				-# %li.menu-item
+				-#	=link_to "Dodaj pliki", new_download_path, class: (controller?("downloads"))? "active" : "waves-effect"
+				%li.menu-item
+					=link_to "Zmień hasło", edit_user_registration_path, class: (controller?("devise"))? "active" : "waves-effect"
+				%li.menu-item
+					= link_to "Wyloguj", destroy_user_session_path, :method => :delete
+
+					
+
+		- if flash.any?
+			#alerts.row
+				.col.s12
+					- flash.each do |msg_type, message|
+						.card-panel{class: "#{alert_color(msg_type)}"}
+							%span.white-text #{message}
+
+		%main
+			.container
+				#adminMain.valign-wrapper
+					.valign
+						= yield
 
 		= javascript_include_tag 'admin', 'data-turbolinks-track' => true
+		%script{src: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'}

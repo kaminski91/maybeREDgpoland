@@ -1,0 +1,22 @@
+%h1 Showroom
+
+%table.responsive-table
+  %thead
+    %tr
+      %th Tytuł
+      %th{colspan: "3"}/
+  %tbody
+    - @showrooms.order(:id).each do |showroom|
+      %tr
+        %td
+          = truncate showroom.content_pl
+        %td
+          = link_to 'Wyświetl', showroom
+        %td
+          = link_to 'Edytuj', edit_showroom_path(showroom)
+        %td
+          = link_to 'Usuń', showroom, method: :delete, data: { confirm: 'Na pewno?' }
+
+.fixed-action-btn
+  %a.btn-floating.btn-large{href: new_showroom_path}
+    %i.fa.fa-plus

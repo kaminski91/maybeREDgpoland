@@ -1,12 +1,12 @@
 = form_for(@gallery_image) do |f|
-  .field-group
-    %h3 Galeria
-    %p
-      = @gallery_image.gallery.name
-      = f.hidden_field :gallery_id, value: @gallery_image.gallery_id
-  .field-group
-    %h3 Obraz
-    = f.file_field :img
+  = f.hidden_field :gallery_id, value: @gallery_image.gallery_id
 
-  .field-group
-    = f.submit
+  .file-field.input-field
+    .btn
+      %span Dodaj obraz
+      = f.file_field :img
+    .file-path-wrapper
+      %input.file-path.validate{type: "text"}
+
+  .actions
+    %button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

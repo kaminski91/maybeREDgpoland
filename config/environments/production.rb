@@ -26,7 +26,9 @@ Rails.application.configure do
   config.serve_static_files = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = false
+  config.assets.css_compressor = false
+  # config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -77,4 +79,33 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "lilla.nazwa.pl",
+    :port                 => 465,
+    :user_name            => "gpoland.linuxpl.eu@gpoland.com.pl",
+    :password             => "!@43%TGBeij++&%?Ql99P",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
+
+#   config.action_mailer.default_url_options = { host: 'gpoland.com.pl' }
+#   config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.smtp_settings = {
+#     port: 465,
+#     address: 'lilla.nazwa.pl',
+#     user_name: 'gpoland.linuxpl.eu@gpoland.com.pl',
+#     password: 'Lubie1qazXSW@Stopy',
+#     authentication: 'plain'
+#   }
+# # Defaults to:
+# # config.action_mailer.sendmail_settings = {
+# #   location: '/usr/sbin/sendmail',
+# #   arguments: '-i -t'
+# # }
+# config.action_mailer.perform_deliveries = true
+# config.action_mailer.raise_delivery_errors = true
 end

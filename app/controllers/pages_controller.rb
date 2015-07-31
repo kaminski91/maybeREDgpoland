@@ -7,9 +7,9 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @static = Page.first
-    @portfolio = Portfolio.all
-    @madeing = MadeInG.all
-    @showroom = Showroom.all.order(id: :asc)
+    @portfolio = Portfolio.all.order(:np)
+    @madeing = MadeInG.all.order(:id)
+    @showroom = Showroom.all.order(:id)
     @news = News.where(active: true).order(date: :desc)
     @start_gallery = Gallery.find_by(name: "start")
     @madeing_gallery = Gallery.find_by(name: "makeing")
@@ -24,14 +24,10 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to admin_path, notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
-      else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.update(page_params)
+      redirect_to edit_page_path(1), flash: {success: 'Zmiany zostały zapisane'}
+    else
+      render :edit
     end
   end
 
@@ -85,6 +81,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:startText_pl, :aboutText_pl, :retailAcademyText_pl, :carieerText_pl, :contactText_pl, :startText_en, :startText_it, :aboutText_en, :aboutText_it, :retailAcademyText_en, :retailAcademyText_it, :carieerText_en, :carieerText_it, :contactText_en, :contactText_it)
+      params.require(:page).permit(:startText_pl, :aboutText_pl, :retailAcademyText_pl, :carieerText_pl, :contactText_pl, :startText_en, :startText_it, :aboutText_en, :aboutText_it, :retailAcademyText_en, :retailAcademyText_it, :carieerText_en, :carieerText_it, :contactText_en, :contactText_it, :retail_img)
     end
 end

@@ -1,47 +1,44 @@
 = form_for(@news) do |f|
-  .field
-    = f.label :date
-    %br/
-    = f.date_select :date
-
-  .field
-    = f.label :title_pl
-    %br/
-    = f.text_area :title_pl
-  .field
-    = f.label :title_en
-    %br/
-    = f.text_area :title_en
-  .field
-    = f.label :title_it
-    %br/
-    = f.text_area :title_it
-
-  .field
-    = f.label :short_pl
-    %br/
-    = f.text_area :short_pl
-  .field
-    = f.label :short_en
-    %br/
-    = f.text_area :short_en
-  .field
-    = f.label :short_it
-    %br/
-    = f.text_area :short_it
-
-  .field
-    = f.label :content_pl
-    %br/
-    = f.text_area :content_pl
-  .field
-    = f.label :content_en
-    %br/
-    = f.text_area :content_en
-  .field
-    = f.label :content_it
-    %br/
-    = f.text_area :content_it
+  .row
+    .col.s12
+      %ul.tabs
+        %li.tab.col.s4
+          %a.active{href: "#newsPL"} PL
+        %li.tab.col.s4
+          %a{href: "#newsEN"} EN
+        %li.tab.col.s4
+          %a{href: "#newsIT"} IT
+         
+  #newsPL
+    .input-field
+      %h5 Tytuł
+      = f.text_field :title_pl, class: "validate"
+    .field
+      %h5 Skrót newsa
+      = f.text_area :short_pl, class: "tinymce"
+    .field
+      %h5 Treść
+      = f.text_area :content_pl, class: "tinymce"
+  #newsEN
+    .input-field
+      %h5 Tytuł
+      = f.text_field :title_en, class: "validate"
+    .field
+      %h5 Skrót newsa
+      = f.text_area :short_en, class: "tinymce"
+    .field
+      %h5 Treść
+      = f.text_area :content_en, class: "tinymce"
+  #newsIT
+    .input-field
+      %h5 Tytuł
+      = f.text_field :title_it, class: "validate"
+    .field
+      %h5 Skrót newsa
+      = f.text_area :short_it, class: "tinymce"
+    .field
+      %h5 Treść
+      = f.text_area :content_it, class: "tinymce"
 
   .actions
-    = f.submit
+    %button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

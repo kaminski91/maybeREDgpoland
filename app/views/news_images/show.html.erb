@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>News:</strong>
+  <%= @news_image.news %>
+</p>
+
+<%= link_to 'Edit', edit_news_image_path(@news_image) %> |
+<%= link_to 'Back', news_images_path %>

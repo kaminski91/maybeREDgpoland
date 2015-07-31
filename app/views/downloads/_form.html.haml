@@ -1,0 +1,18 @@
+= form_for(@download) do |f|
+  %div
+    %label Użytkownik
+    %br/
+    %select.browser-default
+      %option{value: "", disabled: true, selected: true} Wybierz użytkownika
+      - User.where(admin: false).order(:id).each do |u|
+        %option{value: "#{u.id}"} 
+          = u.email
+  
+  .file-field.input-field
+    .btn
+      %span Plik
+      = f.file_field :file
+    .file-path-wrapper
+      %input.file-path.validate{type: "text"}
+  .actions
+    %button.btn.waves-effect.waves-light{type: "submit", name: "action"} Zapisz

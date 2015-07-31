@@ -13,7 +13,7 @@ class SalonsController < ApplicationController
   end
 
   def admin
-    @salons = Salon.all
+    @salons = Salon.all.sort_by {|a| [a.brand, a.city, a.description]}
   end
 
   # GET /salons/1
@@ -37,7 +37,7 @@ class SalonsController < ApplicationController
 
     respond_to do |format|
       if @salon.save
-        format.html { redirect_to @salon, notice: 'Salon was successfully created.' }
+        format.html { redirect_to admin_salons_path, notice: 'Salon was successfully created.' }
         format.json { render :show, status: :created, location: @salon }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class SalonsController < ApplicationController
   def update
     respond_to do |format|
       if @salon.update(salon_params)
-        format.html { redirect_to salons_edit_path, notice: 'Salon was successfully updated.' }
+        format.html { redirect_to admin_salons_path, notice: 'Salon was successfully updated.' }
         format.json { render :show, status: :ok, location: @salon }
       else
         format.html { render :edit }

@@ -1,20 +1,28 @@
-%p
-	%strong Content PL
-	= @showroom.content_pl
+.row
+	.col.s12
+		%ul.tabs
+			%li.tab.col.s4
+				%a.active{href: "#showroomPL"} PL
+			%li.tab.col.s4
+				%a{href: "#showroomEN"} EN
+			%li.tab.col.s4
+				%a{href: "#showroomIT"} IT
 
-%p
-	%strong Content en
-	= @showroom.content_en
-
-%p
-	%strong Content it
-	= @showroom.content_it
-
-%p
-	%strong Obrazek
-= image_tag @showroom.img.url
-
-%br/
-
-= link_to 'Edit', edit_showroom_path(@showroom)
-= link_to 'Back', showrooms_path 
+.row
+	.col.s12
+		.card
+			.card-image
+				= image_tag @showroom.img.url
+			#showroomPL.card-content
+				%p
+					=raw @showroom.content_pl
+			#showroomEN.card-content
+				%p
+					=raw @showroom.content_en
+			#showroomIT.card-content
+				%p
+					=raw @showroom.content_it
+			
+.fixed-action-btn
+	%a.btn-floating.btn-large{href: edit_showroom_path(@showroom)}
+		%i.fa.fa-pencil

@@ -1,27 +1,23 @@
-%h1 Edytuj punkty salonów
+%h1 Salony
 
 %table
 	%thead
 		%tr
 			%th Marka
-			%th posX
-			%th posY
-			%th opis
 			%th Kraj
 			%th Miasto
-			%th Adres
 			%th{colspan: 2}
 	%tbody
 		- @salons.each do |s|
 			%tr
 				%td #{s.brand}
-				%td #{s.posX}
-				%td #{s.posY}
-				%td #{s.description}
 				%td #{s.country}
 				%td #{s.city}
-				%td #{s.address}
 				%td 
 					= link_to 'Edytuj', edit_salon_path(s)
 				%td
 					= link_to 'Usuń', s, method: :delete, data: { confirm: 'Are you sure?' }
+
+.fixed-action-btn
+	%a.btn-floating.btn-large{href: new_salon_path}
+		%i.fa.fa-plus

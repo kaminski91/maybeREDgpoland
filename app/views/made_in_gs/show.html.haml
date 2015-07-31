@@ -1,0 +1,28 @@
+.row
+	.col.s12
+		%ul.tabs
+			%li.tab.col.s4
+				%a.active{href: "#made_in_gPL"} PL
+			%li.tab.col.s4
+				%a{href: "#made_in_gEN"} EN
+			%li.tab.col.s4
+				%a{href: "#made_in_gIT"} IT
+
+.row
+	.col.s12
+		.card
+			.card-image
+				= image_tag @made_in_g.img.url
+			#made_in_gPL.card-content
+				%p
+					=raw @made_in_g.content_pl
+			#made_in_gEN.card-content
+				%p
+					=raw @made_in_g.content_en
+			#made_in_gIT.card-content
+				%p
+					=raw @made_in_g.content_it
+			
+.fixed-action-btn
+	%a.btn-floating.btn-large{href: edit_made_in_g_path(@made_in_g)}
+		%i.fa.fa-pencil

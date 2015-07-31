@@ -1,3 +1,4 @@
+// var event = null;
 var isPfOnView = false;
 
 var project = $("#pf");
@@ -11,7 +12,7 @@ if($("#pf").length > 0) {
 	setTimeout(function(){ $('#banner').find('.inner').css('opacity', '1'); }, 500);
 
 	//fix na pf
-	$('#pf').find('.item').css('opacity', '0');
+	// $('#pf').find('.item').css('opacity', '0');
 
 	skel
 		.breakpoints({
@@ -22,13 +23,11 @@ if($("#pf").length > 0) {
 			xsmall:	'(max-width: 480px)'
 		});
 
-
-
-	if($("#pf").length > 0 && $(window).scrollTop() > pfHeight[0] && $(window).scrollTop() < pfHeight[1]){
-		doPfThings();
-	}else{
-		console.log('nie widać pf')
-	}
+	// if($("#pf").length > 0 && $(window).scrollTop() > pfHeight[0] - 1000 && $(window).scrollTop() < pfHeight[1]){
+	// 	doPfThings();
+	// }else{
+	// 	console.log('nie widać pf')
+	// }
 
 	$(function() {
 
@@ -60,11 +59,28 @@ if($("#pf").length > 0) {
 					});
 
 		// Scrolly.
-			$('.scrolly')
-				.scrolly({
-					speed: 1500,
-					offset: $header.outerHeight()
-				});
+			// $('.scrolly')
+			// 	.scrolly({
+			// 		speed: 1500,
+			// 		offset: $header.outerHeight()
+			// 	});
+			$('.scrolly').click(function(event) {
+				if( $(this).attr('href').charAt(0) == "#" ) {
+					event.preventDefault();
+
+					var node = $($(this).attr('href')).offset().top
+
+					// Sprawdzamy czy docelowy element jest przed #pf
+					if( node >= $('#pf').offset().top ) {
+						doPfThings();
+					}
+
+					// Skrolujemy
+					$('html, body').stop().animate({
+		      	'scrollTop': node
+			    }, 1500, 'swing');
+				}
+			});
 
 		// Menu.
 			var	$menu = $('#menu'),
@@ -97,7 +113,7 @@ if($("#pf").length > 0) {
 
 					});
 
-				$(window).scroll(function(){
+				$(window).scroll(function(event){
 					event.preventDefault();
 					event.stopPropagation();
 
@@ -110,8 +126,8 @@ if($("#pf").length > 0) {
 
 						if ($body.hasClass('is-menu-visible')) {
 
-							event.preventDefault();
-							event.stopPropagation();
+							// event.preventDefault();
+							// event.stopPropagation();
 
 							$body.removeClass('is-menu-visible');
 
@@ -179,13 +195,11 @@ $(document).ready(function(){
 		animateOut: 'fadeOut'
 	});
 
-	tinyMCE.init({
-		selector: "textarea.tinymce",
-		language: "pl",
-		menubar: false,
-		toolbar: "formatselect fontsizeselect | bold italic underline strikethrough |  alignleft aligncenter alignright alignjustify | undo redo | cut copy paste | bullist numlist blockquote | subscript superscript | link code",
-		plugins: "link code"
-	});
+	// STARE PF
+	// project.gridalicious({
+	// 	gutter: 50,
+	// 	animate: false
+	// }).find('.item').css('opacity', '0');
 
 	$(".owl-carousel.rotator").find('.item').height($('.owl-carousel.rotator').height());
 
@@ -195,10 +209,10 @@ $(document).ready(function(){
 
 	if($(window).width() < 480){ // przepraszam ze tutaj :D
 		$('#map-canvas-index').css("display", "none");
-		$('#googleMapHrefButton').css("display", "block");
+		// $('#googleMapHrefButton').css("display", "block");
 	}else{
 		$('#map-canvas-index').css("display", "block");
-		$('#googleMapHrefButton').css("display", "none");
+		// $('#googleMapHrefButton').css("display", "none");
 
 	}
 
@@ -218,7 +232,7 @@ $(window).resize(function() {
 });
 
 $(window).scroll(function(){
-	if($("#pf").length > 0 && !isPfOnView && $(window).scrollTop() > pfHeight[0] && $(window).scrollTop() < pfHeight[1]){
+	if($("#pf").length > 0 && !isPfOnView && $(window).scrollTop() > pfHeight[0] - 250 && $(window).scrollTop() < pfHeight[1]){
 		doPfThings();
 	}
 });
@@ -226,18 +240,20 @@ $(window).scroll(function(){
 function doPfThings(){
 	if(!isPfOnView && project && project.length != 0){
 		console.log('do doPfThings function');
-		$('#pf').find('.item').css('opacity', '1');
-		project.gridalicious({
-			gutter: 50,
-			animate: true,
-			animationOptions: {
-				queue: true,
-				speed: 200,
-				duration: 300,
-				effect: 'fadeInOnAppear'
 
-			}
-		});
+		$('#pf-container').addClass('active');
+		// STARE PF
+		// $('#pf').find('.item').css('opacity', '1');
+		// project.gridalicious({
+		// 	gutter: 50,
+		// 	animate: true,
+		// 	animationOptions: {
+		// 		queue: true,
+		// 		speed: 100,
+		// 		duration: 150,
+		// 		effect: 'fadeInOnAppear'
+		// 	}
+		// });
 	}
 	isPfOnView = true;
 }
@@ -262,7 +278,3 @@ function initializeIndexMap() {
 
 
 }
-
-$(document).on('page:receive', function() {
-	tinymce.remove();
-});

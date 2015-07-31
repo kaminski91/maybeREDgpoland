@@ -45,7 +45,7 @@ class TranslationsController < ApplicationController
   def update
     respond_to do |format|
       if @translation.update(translation_params)
-        format.html { redirect_to @translation, notice: 'Translation was successfully updated.' }
+        format.html { redirect_to edit_translation_path(1), notice: 'Translation was successfully updated.' }
         format.json { render :show, status: :ok, location: @translation }
       else
         format.html { render :edit }
@@ -72,6 +72,6 @@ class TranslationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def translation_params
-      params.require(:translation).permit(:startMore_pl, :startMore_en, :startMore_it, :aboutHeader_pl, :aboutHeader_en, :aboutHeader_it, :portfolioHeader_pl, :portfolioHeader_en, :portfolioHeader_it, :portfolioMore_pl, :portfolioMore_en, :portfolioMore_it, :carieerHeader_pl, :carieerHeader_en, :carieerHeader_it, :contactHeader_pl, :contactHeader_en, :contactHeader_it, :contactFollow_pl, :contactFollow_en, :contactFollow_it, :formName_pl, :formName_en, :formName_it, :formEmail_pl, :formEmail_en, :formEmail_it, :formTel_pl, :formTel_en, :formTel_it, :formContent_pl, :formContent_en, :formContent_it, :salonHeader_pl, :salonHeader_en, :salonHeader_it, :portfolioMenu_pl, :portfolioMenu_en, :portfolioMenu_it, :formSend_pl, :formSend_en, :formSend_it, :formPass_pl, :formPass_en, :formPass_it, :formLogin_pl, :formLogin_en, :formLogin_it, :downloadHeader_pl, :downloadHeader_en, :downloadHeader_it, :contactMenu_pl, :contactMenu_en, :contactMenu_it, :newsHeader_pl, :newsHeader_en, :newsHeader_it)
+      params.require(:translation).permit(:startMore_pl, :startMore_en, :startMore_it, :aboutHeader_pl, :aboutHeader_en, :aboutHeader_it, :portfolioHeader_pl, :portfolioHeader_en, :portfolioHeader_it, :portfolioMore_pl, :portfolioMore_en, :portfolioMore_it, :carieerHeader_pl, :carieerHeader_en, :carieerHeader_it, :contactHeader_pl, :contactHeader_en, :contactHeader_it, :contactFollow_pl, :contactFollow_en, :contactFollow_it, :formName_pl, :formName_en, :formName_it, :formEmail_pl, :formEmail_en, :formEmail_it, :formTel_pl, :formTel_en, :formTel_it, :formContent_pl, :formContent_en, :formContent_it, :salonHeader_pl, :salonHeader_en, :salonHeader_it, :portfolioMenu_pl, :portfolioMenu_en, :portfolioMenu_it, :formSend_pl, :formSend_en, :formSend_it, :formPass_pl, :formPass_en, :formPass_it, :formLogin_pl, :formLogin_en, :formLogin_it, :downloadHeader_pl, :downloadHeader_en, :downloadHeader_it, :contactMenu_pl, :contactMenu_en, :contactMenu_it, :newsHeader_pl, :newsHeader_en, :newsHeader_it, :map_pl, :map_en, :map_it, :salonText_pl, :salonText_en, :salonText_it, :salonFilter_pl, :salonFilter_en, :salonFilter_it, :salonFilterCountry_pl, :salonFilterCountry_en, :salonFilterCountry_it, :salonFilterCity_pl, :salonFilterCity_en, :salonFilterCity_it, :salonFilterBrand_pl, :salonFilterBrand_en, :salonFilterBrand_it, :salonFilterLocalization_pl, :salonFilterLocalization_en, :salonFilterLocalization_it, :salonFilterAll_pl, :salonFilterAll_en, :salonFilterAll_it)
     end
 end
