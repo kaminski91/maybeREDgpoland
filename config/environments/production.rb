@@ -88,6 +88,7 @@ Rails.application.configure do
     :user_name            => "gpoland.linuxpl.eu@gpoland.com.pl",
     :password             => "!@43%TGBeij++&%?Ql99P",
     :authentication       => "plain",
+    :enable_starttls_auto => true,
     :enable_starttls_auto => true
   }
 
